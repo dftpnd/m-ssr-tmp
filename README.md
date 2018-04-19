@@ -1,4 +1,4 @@
-## Scotty, we need more power with:
+## MIB tmp:
 
 - React
 - Redux
@@ -18,10 +18,12 @@ With custom demo Todo app implementation.
 #### How to run:
 
 ```
-$ git clone https://github.com/juliancwirko/scotty.git
-$ cd scotty
-$ rm .git
+$ git clone https://github.com/lkdnvc/m-ssr-tmp.git
+$ cd m-ssr-tmp
 $ npm install
+& -- https://www.meteor.com/install
+$ -- OSX / LINUX (curl https://install.meteor.com/ | sh) 
+$ -- https://chocolatey.org/install (choco install meteor)
 $ meteor
 ```
 
