@@ -4,6 +4,7 @@ import { array, func } from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Todo from '../../components/todo-item/Todo';
 import { callAddTodo } from '../../../api/redux/async-actions';
+// import testImg  from './test.png';
 
 const Home = (props) => {
   const { todos, dispatchCallAddTodo } = props;
@@ -23,6 +24,7 @@ const Home = (props) => {
         <meta property="og:title" content="This is homepage. Just Helmet SSR demo for OG" />
       </Helmet>
       <div>
+        <img width="800px" src="/images/test.png" alt="somme alt" />
         <input
           type="text"
           className="add-todo-input"
