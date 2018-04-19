@@ -18,7 +18,7 @@ With custom demo Todo app implementation.
 #### How to run:
 
 ```
-$ git clone https://github.com/juliancwirko/scotty.git
+$ git clone https://github.com/lkdnvc/m-ssr-tmp.git
 $ cd scotty
 $ rm .git
 $ npm install
