@@ -1,4 +1,4 @@
-## Scotty, we need more power with:
+## MIB tmp:
 
 - React
 - Redux
