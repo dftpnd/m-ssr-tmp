@@ -21,6 +21,9 @@ With custom demo Todo app implementation.
 $ git clone https://github.com/lkdnvc/m-ssr-tmp.git
 $ cd m-ssr-tmp
 $ npm install
+& -- https://www.meteor.com/install
+$ -- OSX / LINUX (curl https://install.meteor.com/ | sh) 
+$ -- https://chocolatey.org/install (choco install meteor)
 $ meteor
 ```
 
