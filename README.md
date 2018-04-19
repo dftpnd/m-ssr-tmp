@@ -19,8 +19,7 @@ With custom demo Todo app implementation.
 
 ```
 $ git clone https://github.com/lkdnvc/m-ssr-tmp.git
-$ cd scotty
-$ rm .git
+$ cd m-ssr-tmp
 $ npm install
 $ meteor
 ```
