@@ -1,14 +1,19 @@
-$color-main-light: #fff;
-$color-main-dark: #000;
-$color-main-contrast: #2a3647;
-$color-main-variant: #4d4d4d;
-
-@function rem-calc($size) {
-  $remSize: $size / 16;
-  @return #{$remSize}rem;
+html {
+  font: 100%/1.6 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-@import '../imports/ui/components/todo-item/todo';
-@import '../imports/ui/pages/subpage/subpage';
-@import '../imports/ui/pages/home/home';
-@import '../imports/ui/layouts/main/main';
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app {
+  border: 1px solid black;
+  height: 100%;
+}
+
+@import '../imports/ui/pages/index/index.scss';
