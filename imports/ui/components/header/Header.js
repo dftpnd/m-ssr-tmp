@@ -7,7 +7,7 @@ const Header = (props) => {
   return (
     <header className="header">
       <nav className="nav">
-        <a href="">Комбо обед</a>
+        <a href="">Комбо & обед</a>
         <a href="">PIZZA</a>
         <a href="">Паста</a>
         <a href="">Горячии блюда</a>
