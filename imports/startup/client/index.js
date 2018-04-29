@@ -15,15 +15,13 @@ delete window.__PRELOADED_STATE__; // eslint-disable-line
 const store = createStore(mainReducer, preloadedState, applyMiddleware(thunk));
 
 const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <Switch>
-        {routes}
-      </Switch>
-    </BrowserRouter>
-  </Provider>
+    <Provider store={store}>
+        <BrowserRouter>
+            <Switch>{routes}</Switch>
+        </BrowserRouter>
+    </Provider>
 );
 
 onPageLoad(() => {
-  ReactDOM.hydrate(<App />, document.getElementById('app'));
+    ReactDOM.hydrate(<App />, document.getElementById('app'));
 });

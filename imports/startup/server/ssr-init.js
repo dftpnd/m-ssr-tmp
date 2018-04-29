@@ -11,33 +11,33 @@ import mainReducer from '../../api/redux/reducers';
 import routes from '../both/routes';
 import { todosGetAll } from '../../api/todos/methods';
 
-onPageLoad((sink) => {
-  const context = {};
-  const initial = todosGetAll.call({});
+onPageLoad(sink => {
+    const context = {};
+    const initial = todosGetAll.call({});
 
-  const store = createStore(mainReducer, { todos: initial }, applyMiddleware(thunk));
+    const store = createStore(mainReducer, { todos: initial }, applyMiddleware(thunk));
 
-  const App = props => (
-    <Provider store={store}>
-      <StaticRouter location={props.location} context={context}>
-        {routes}
-      </StaticRouter>
-    </Provider>
-  );
+    const App = props => (
+        <Provider store={store}>
+            <StaticRouter location={props.location} context={context}>
+                {routes}
+            </StaticRouter>
+        </Provider>
+    );
 
-  App.propTypes = {
-    location: object.isRequired,
-  };
+    App.propTypes = {
+        location: object.isRequired
+    };
 
-  const preloadedState = store.getState();
+    const preloadedState = store.getState();
 
-  sink.renderIntoElementById('app', renderToString(<App location={sink.request.url} />));
+    sink.renderIntoElementById('app', renderToString(<App location={sink.request.url} />));
 
-  const helmet = Helmet.renderStatic();
-  sink.appendToHead(helmet.meta.toString());
-  sink.appendToHead(helmet.title.toString());
+    const helmet = Helmet.renderStatic();
+    sink.appendToHead(helmet.meta.toString());
+    sink.appendToHead(helmet.title.toString());
 
-  sink.appendToBody(`
+    sink.appendToBody(`
     <script>
       window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
     </script>
