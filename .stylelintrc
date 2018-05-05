@@ -1,0 +1,15 @@
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "color-hex-case": "lower",
+        "color-hex-length": "long",
+        "custom-property-empty-line-before": "never",
+        "indentation": 4,
+        "property-no-unknown": [
+            true,
+            {
+                "ignoreProperties": ["composes"]
+            }
+        ]
+    }
+}

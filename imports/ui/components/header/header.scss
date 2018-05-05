@@ -1,0 +1,43 @@
+.header {
+    border: 1px dashed blanchedalmond;
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.wrapper {
+    max-width: 793px;
+    margin: 0 auto;
+}
+
+.header_wrapper {
+    width: 100%;
+    padding-top: 27px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#header_icon {
+    width: 80px;
+    height: 4.9rem;
+    text-align: center;
+    background: #ff0120;
+}
+
+.header_number{
+    margin-left: 35%;
+}
+
+nav {
+    margin-top: 3.6rem;
+}
+
+nav a {
+    padding-left: 20px;
+    color: black;
+}
+
+nav a:first-child {
+    padding-left: 0;
+}
