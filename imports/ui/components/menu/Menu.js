@@ -6,7 +6,12 @@ import { callGetMenu } from '../../../api/redux/async-actions';
 const Menu = ({ menu, fetch }) => {
     fetch();
 
-    return <div className="menu">{menu.map((item, index) => <div key={index}>{item.name}</div>)}</div>;
+    return (
+        <div className="menu">
+            {menu.map((item, index) => <div key={index}>{item.name}</div>)}
+            <a>мудак</a>
+        </div>
+    );
 };
 
 Menu.propTypes = {
