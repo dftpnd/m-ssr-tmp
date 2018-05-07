@@ -50,7 +50,6 @@ const Menu = ({ menu, fetch }) => {
                     </div>
                 );
             })}
-            asdasdas
         </section>
     );
 };
