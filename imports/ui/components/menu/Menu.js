@@ -73,7 +73,7 @@ const Menu = ({ menu, fetch }) => {
                 {
                     name: 'Napoletana (Наполетана)',
                     price: '750'
-                },
+                }
             ]
         },
         {
@@ -114,7 +114,7 @@ const Menu = ({ menu, fetch }) => {
                 {
                     name: 'Con calamari',
                     price: '450'
-                },
+                }
             ]
         }
     ];
@@ -123,13 +123,17 @@ const Menu = ({ menu, fetch }) => {
         <section>
             <div className="menu">
                 {menu.map((item, index) => <div key={index}>{item.name}</div>)}
-                <a>мудак</a>
+                <a>название</a>
             </div>
             {menu2.map((item, index) => {
                 return (
                     <div key={index}>
                         {item.list.map((subItem, i) => {
-                            return <div key={i}>{subItem.name}</div>;
+                            return (
+                                <div key={i}>
+                                    название:{subItem.name}цена:{subItem.price}
+                                </div>
+                            );
                         })}
                     </div>
                 );
