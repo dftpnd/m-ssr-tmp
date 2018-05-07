@@ -49,7 +49,7 @@ const Menu = ({ menu, fetch }) => {
                 {
                     name: 'Bolognese (Болоньезе)',
                     price: '390'
-                }
+                },
                 {
                     name: 'La metà (Ла мета)',
                     price: '450'
