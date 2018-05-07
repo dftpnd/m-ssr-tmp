@@ -129,7 +129,7 @@ const Menu = ({ menu, fetch }) => {
                 return (
                     <div key={index}>
                         {item.list.map((subItem, i) => {
-                            return (<div key={i}><p>Название: {subItem.name}</p><p>Цена: {subItem.price}</p></div>);
+                            return (<div className="text" key={i}><p>{subItem.name}</p><p>цена:{subItem.price}</p></div>);
                         })}
                     </div>
                 );
