@@ -195,28 +195,23 @@ const Menu = ({ menu, fetch }) => {
                 ))}
                 {menu2.map((item, index) => (
                     <div className="border" key={index}>
-                        {menu2.map((item, index) => {
+                        {item.list.map((subItem, i) => {
                             return (
-                                <div key={index}>
-                                    {item.list.map((subItem, i) => {
-                                        return (
-                                            <div className="text" key={i}>
-                                                <p>
-                                                    {subItem.name}
-                                                    <br />
-                                                    {subItem.name_2}.
-                                                </p>
-                                                <p>
-                                                    Цена: {subItem.price}
-                                                    <br />
-                                                    {subItem.price_2}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
+                                <div className="text" key={i}>
+                                    <p>
+                                        {subItem.name}
+                                        <br />
+                                        {subItem.name_2}.
+                                    </p>
+                                    <p>
+                                        Цена: {subItem.price}
+                                        <br />
+                                        {subItem.price_2}
+                                    </p>
                                 </div>
                             );
                         })}
+                        );
                     </div>
                 ))}
             </div>
