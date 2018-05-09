@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const Header = () => (
     <header className="header">
-        <div className="wrapper">
+        <div className="wrapper__22">
             <div className="header_wrapper">
                 <div id="header_icon">
                     <span>icon</span>

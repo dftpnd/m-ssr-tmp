@@ -188,13 +188,13 @@ const Menu = ({ menu, fetch }) => {
     return (
         <section>
             <div className="menu">
-                {menu2.map((item, index) => (
+                {/* {menu2.map((item, index) => (
                     <div className="bordertwo" key={index}>
                         {item.name}
                     </div>
-                ))}
+                ))} */}
                 {menu2.map((item, index) => (
-                    <div className="border" key={index}>
+                    <div className="bordered" key={index}>
                         {item.list.map((subItem, i) => {
                             return (
                                 <div className="text" key={i}>

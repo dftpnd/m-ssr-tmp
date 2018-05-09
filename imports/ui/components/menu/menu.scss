@@ -1,17 +1,26 @@
+section {
+}
+
 .menu {
     //grid-column-start: 2;
     //grid-column-end: 3;
     //border: 2px solid #396565;
-    display:flex;
+    display: flex;
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: scroll;
 }
 
-.border{
-    border: 1px solid #233246;
+.bordered {
+    border: 1px solid #233246 !important;
+    width: 794px;
 }
 
-.menu__test{
-
+.menu__test {
 }
-.text{
-
+.text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
 }
