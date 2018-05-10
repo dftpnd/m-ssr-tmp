@@ -22,14 +22,21 @@
 }
 .menu_list::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .list {
     max-width: 100%;
+    min-width: 100%;
     flex-shrink: 0;
+    border: 3px solid yellow;
+    border-right: none;
 }
 .text {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.4rem;
+
+    p:first-child {
+        width: 80%;
+    }
 }
