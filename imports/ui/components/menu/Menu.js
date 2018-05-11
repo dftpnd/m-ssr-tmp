@@ -29,7 +29,6 @@ const Menu = ({ fetch }) => {
                         {item.list.map((subItem, i) => {
                             return (
                                 <div className="text" key={i}>
-                                    {' '}
                                     <p>
                                         {subItem.name}
                                         <br />
@@ -39,7 +38,13 @@ const Menu = ({ fetch }) => {
                                         Цена: {subItem.price}
                                         <br /> {subItem.price_2}
                                     </p>
-                                    <button onClick={() => {}}>Заказать</button>
+                                    <button
+                                        onClick={() => {
+                                            handlerOrder(subItem.name);
+                                        }}
+                                    >
+                                        Заказать
+                                    </button>
                                 </div>
                             );
                         })}
