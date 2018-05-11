@@ -39,7 +39,7 @@ const Menu = ({ fetch }) => {
                                         Цена: {subItem.price}
                                         <br /> {subItem.price_2}
                                     </p>
-                                    <button onClick={handlerOrder(subItem.name)}>Заказать</button>
+                                    <button onClick={() => {}}>Заказать</button>
                                 </div>
                             );
                         })}
