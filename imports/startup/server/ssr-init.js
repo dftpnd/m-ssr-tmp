@@ -10,12 +10,16 @@ import { Helmet } from 'react-helmet';
 import mainReducer from '../../api/redux/reducers';
 import routes from '../both/routes';
 import { todosGetAll } from '../../api/todos/methods';
+import getAllMenu from '../../api/menu/methods';
+import { accountsFind } from '../../api/accounts/methods';
 
 onPageLoad(sink => {
     const context = {};
-    const initial = todosGetAll.call({});
+    const todos = todosGetAll.call({});
+    const menu = getAllMenu.call({});
+    const accounts = accountsFind.call({ email: 'lkdnvc@yandex.ru' });
 
-    const store = createStore(mainReducer, { todos: initial }, applyMiddleware(thunk));
+    const store = createStore(mainReducer, { todos, menu, accounts }, applyMiddleware(thunk));
 
     const App = props => (
         <Provider store={store}>

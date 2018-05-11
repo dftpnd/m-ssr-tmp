@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, GET_ALL_TODO, GET_MENU } from './actions';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, GET_ALL_TODO, GET_MENU, FIND_ACCOUNT } from './actions';
 
 const remove = (state, action) => {
     const elemToRemoveArray = state.slice().filter(item => item._id === action._id);
@@ -45,9 +45,19 @@ function menu(state = [], action) {
     }
 }
 
+function accounts(state = [], action) {
+    switch (action.type) {
+        case FIND_ACCOUNT:
+            return action.data;
+        default:
+            return state;
+    }
+}
+
 const mainReducer = combineReducers({
     todos,
-    menu
+    menu,
+    accounts
 });
 
 export default mainReducer;

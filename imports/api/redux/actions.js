@@ -7,6 +7,7 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 export const GET_ALL_TODO = 'GET_ALL_TODO';
 export const GET_MENU = 'GET_MENU';
+export const FIND_ACCOUNT = 'FIND_ACCOUNT';
 
 /*
 * action creators
@@ -43,6 +44,13 @@ export function getAllTodo(data) {
 export function getMenu(data) {
     return {
         type: GET_MENU,
+        data
+    };
+}
+
+export function findAccounts(data) {
+    return {
+        type: FIND_ACCOUNT,
         data
     };
 }

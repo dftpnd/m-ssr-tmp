@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { array, func } from 'prop-types';
-import { callGetMenu } from '../../../api/redux/async-actions';
+import { array, object } from 'prop-types';
+import i18n from 'meteor/universe:i18n';
+
+import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menu from './menu-mock';
+
+const T = i18n.createComponent();
 
 const Menu = ({ fetch }) => {
     fetch();
@@ -11,6 +15,7 @@ const Menu = ({ fetch }) => {
     };
     return (
         <section className="main_menu">
+            <T>common.navbar.Language</T>
             <div className="menu">
                 {menu.map((item, index) => (
                     <div className="headmenu" key={index}>
@@ -46,10 +51,10 @@ const Menu = ({ fetch }) => {
 };
 
 Menu.propTypes = {
-    menu: array.isRequired,
-    fetch: func.isRequired
+    menu: array.isRequired
 };
 
+Menu.defaultProps = {};
 const mapStateToProps = state => ({ menu: state.menu });
 
-export default connect(mapStateToProps, { fetch: callGetMenu })(Menu);
+export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Menu);
