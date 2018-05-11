@@ -39,7 +39,6 @@ function todos(state = [], action) {
 function menu(state = [], action) {
     switch (action.type) {
         case GET_MENU:
-            console.log('reducer GET_MENU', action.data);
             return action.data;
         default:
             return state;

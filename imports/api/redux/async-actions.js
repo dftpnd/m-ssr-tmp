@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { addTodo, getAllTodo, removeTodo, editTodo, getMenu } from './actions';
-import { todosGetAll, todosAdd, todosEdit, todosRemove, menuGetAll } from '../todos/methods';
+import { todosGetAll, todosAdd, todosEdit, todosRemove } from '../todos/methods';
+import menuGetAll from '../menu/methods';
 
 export function callAddTodo(message) {
     return dispatch =>
@@ -14,7 +15,6 @@ export function callAddTodo(message) {
 }
 
 export function callGetAllTodo() {
-    console.log('callGetAllTodo');
     return dispatch =>
         todosGetAll.call({}, (err, result) => {
             if (err) {
@@ -48,7 +48,6 @@ export function callEditTodo(_id) {
 }
 
 export function callGetMenu() {
-    console.log('callGetMenu');
     return dispatch =>
         menuGetAll.call({}, (err, result) => {
             if (err) {

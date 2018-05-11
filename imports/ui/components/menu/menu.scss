@@ -1,5 +1,42 @@
+.main_menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .menu {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    border: 2px solid yellow;
+    //grid-column-start: 2;
+    //grid-column-end: 3;
+    //border: 2px solid #396565;
+    display: flex;
+}
+.headmenu {
+    padding: 0 30px;
+    border: 1px solid red;
+}
+
+.menu_list {
+    display: flex;
+    width: 80%;
+    overflow-x: auto;
+}
+.menu_list::-webkit-scrollbar {
+    display: none;
+}
+
+.list {
+    max-width: 100%;
+    min-width: 100%;
+    flex-shrink: 0;
+    border: 3px solid yellow;
+    border-right: none;
+}
+.text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+
+    p:first-child {
+        width: 80%;
+    }
 }
