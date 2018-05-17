@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import { addTodo, getAllTodo, removeTodo, editTodo, getMenu } from './actions';
+import { addTodo, getAllTodo, removeTodo, editTodo, getMenu, findAccounts } from './actions';
 import { todosGetAll, todosAdd, todosEdit, todosRemove } from '../todos/methods';
 import menuGetAll from '../menu/methods';
+import { accountsFind } from '../accounts/methods';
 
 export function callAddTodo(message) {
     return dispatch =>
@@ -51,9 +52,20 @@ export function callGetMenu() {
     return dispatch =>
         menuGetAll.call({}, (err, result) => {
             if (err) {
-                throw new Meteor.Error('jkhkjhkj');
+                throw new Meteor.Error('error menuGetAll call');
             } else {
                 dispatch(getMenu(result));
+            }
+        });
+}
+
+export function callFindAccount(data) {
+    return dispatch =>
+        accountsFind.call(data, (err, result) => {
+            if (err) {
+                throw new Meteor.Error(err.message);
+            } else {
+                dispatch(findAccounts(result));
             }
         });
 }

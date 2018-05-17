@@ -1,128 +1,129 @@
 {
-  "name": "scotty",
-  "version": "3.0.1",
-  "description": "Meteor React boilerplate",
-  "scripts": {
-    "start": "meteor run --port 8001",
-    "lint": "eslint .",
-    "pretest": "npm run lint --silent",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
-    "@babel/runtime": "^7.0.0-beta.44",
-    "babel-runtime": "^6.26.0",
-    "bcrypt": "^1.0.3",
-    "bootstrap": "^4.0.0",
-    "core-js": "^2.5.1",
-    "history": "^4.6.3",
-    "meteor-node-stubs": "0.3.3",
-    "normalize.css": "^8.0.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-helmet": "^5.2.0",
-    "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
-    "postcss-easy-import": "^3.0.0",
-    "autoprefixer": "^7.1.6",
-    "babel-eslint": "^7.2.3",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^4.4.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-meteor": "^4.2.0",
-    "eslint-plugin-react": "^7.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/juliancwirko/scotty.git"
-  },
-  "author": "Julian Ćwirko",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/juliancwirko/scotty/issues"
-  },
-  "homepage": "https://github.com/juliancwirko/scotty#readme",
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 7,
-      "sourceType": "module"
+    "name": "mib",
+    "version": "3.0.1",
+    "description": "Meteor React boilerplate",
+    "scripts": {
+        "start": "meteor run --port 8001",
+        "lint": "eslint .",
+        "pretest": "npm run lint --silent",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "parser": "babel-eslint",
-    "plugins": [
-      "meteor"
-    ],
-    "extends": [
-      "airbnb",
-      "plugin:meteor/recommended"
-    ],
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true
+    "dependencies": {
+        "@babel/core": "^7.0.0-beta.47",
+        "@babel/preset-env": "^7.0.0-beta.47",
+        "@babel/runtime": "^7.0.0-beta.47",
+        "babel-runtime": "^6.26.0",
+        "bcrypt": "^1.0.3",
+        "bootstrap": "^4.1.1",
+        "core-js": "^2.5.6",
+        "history": "^4.6.3",
+        "meteor-node-stubs": "0.3.3",
+        "normalize.css": "^8.0.0",
+        "prop-types": "^15.6.0",
+        "react": "^16.3.2",
+        "react-dom": "^16.3.2",
+        "react-helmet": "^5.2.0",
+        "react-redux": "^5.0.6",
+        "react-router": "^4.2.0",
+        "react-router-dom": "^4.2.2",
+        "redux": "^3.7.2",
+        "redux-thunk": "^2.2.0"
     },
-    "rules": {
-      "react/jsx-filename-extension": "off",
-      "react/forbid-prop-types": "off",
-      "react/no-array-index-key": "off",
-      "react/no-danger": "off",
-      "jsx-a11y/href-no-hash": "off",
-      "jsx-a11y/no-static-element-interactions": "off",
-      "jsx-a11y/label-has-for": "off",
-      "import/no-extraneous-dependencies": "off",
-      "import/extensions": "off",
-      "meteor/eventmap-params": [
-        2,
-        {
-          "eventParamName": "event",
-          "templateInstanceParamName": "instance"
+    "devDependencies": {
+        "autoprefixer": "^7.1.6",
+        "babel-eslint": "^7.2.3",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "eslint": "^4.4.0",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-plugin-import": "^2.12.0",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-meteor": "^4.2.2",
+        "eslint-plugin-react": "^7.8.2",
+        "postcss-easy-import": "^3.0.0",
+        "stylelint-config-standard": "^18.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/juliancwirko/scotty.git"
+    },
+    "author": "Julian Ćwirko",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/juliancwirko/scotty/issues"
+    },
+    "homepage": "https://github.com/juliancwirko/scotty#readme",
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 7,
+            "sourceType": "module"
+        },
+        "parser": "babel-eslint",
+        "plugins": [
+            "meteor"
+        ],
+        "extends": [
+            "airbnb",
+            "plugin:meteor/recommended"
+        ],
+        "env": {
+            "browser": true,
+            "node": true,
+            "es6": true
+        },
+        "rules": {
+            "react/jsx-filename-extension": "off",
+            "react/forbid-prop-types": "off",
+            "react/no-array-index-key": "off",
+            "react/no-danger": "off",
+            "jsx-a11y/href-no-hash": "off",
+            "jsx-a11y/no-static-element-interactions": "off",
+            "jsx-a11y/label-has-for": "off",
+            "import/no-extraneous-dependencies": "off",
+            "import/extensions": "off",
+            "meteor/eventmap-params": [
+                2,
+                {
+                    "eventParamName": "event",
+                    "templateInstanceParamName": "instance"
+                }
+            ],
+            "meteor/template-names": [
+                0
+            ],
+            "import/no-unresolved": [
+                2,
+                {
+                    "ignore": [
+                        "^meteor/"
+                    ]
+                }
+            ],
+            "no-underscore-dangle": [
+                "error",
+                {
+                    "allow": [
+                        "_id"
+                    ]
+                }
+            ],
+            "no-unused-vars": [
+                "error",
+                {
+                    "args": "none"
+                }
+            ]
         }
-      ],
-      "meteor/template-names": [
-        0
-      ],
-      "import/no-unresolved": [
-        2,
-        {
-          "ignore": [
-            "^meteor/"
-          ]
+    },
+    "postcss": {
+        "plugins": {
+            "postcss-easy-import": {},
+            "autoprefixer": {
+                "browsers": [
+                    "last 1 versions"
+                ]
+            }
         }
-      ],
-      "no-underscore-dangle": [
-        "error",
-        {
-          "allow": [
-            "_id"
-          ]
-        }
-      ],
-      "no-unused-vars": [
-        "error",
-        {
-          "args": "none"
-        }
-      ]
     }
-  },
-  "postcss": {
-    "plugins": {
-      "postcss-easy-import": {},
-      "autoprefixer": {
-        "browsers": [
-          "last 2 versions"
-        ]
-      }
-    }
-  }
 }

@@ -1,9 +1,7 @@
 .index {
     width: 100%;
     height: 100%;
-    height: 100%;
     display: grid;
-    width: 100%;
     grid-template-columns: 1fr minmax(0, 960px) 1fr;
 }
 
@@ -22,6 +20,3 @@ body:before {
     background-image: linear-gradient(#ccd0ff 1px, transparent 1px);
     background-size: 100% 1rem;
 }
-
-@import '../../components/header/header';
-@import '../../components/menu/menu';
