@@ -7,7 +7,7 @@
         "mocha": true,
         "browser": true
     },
-    "plugins": ["react", "jsx-a11y", "import", "meteor"],
+    "plugins": ["react", "jsx-a11y", "import"],
     "ecmaFeatures": {
         "jsx": true,
         "modules": true
