@@ -37,9 +37,31 @@
 .text {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 1.4rem;
 
     p:first-child {
         width: 80%;
     }
+}
+
+.order {
+    width: 80%;
+    height: 500px;
+    border: 1px solid;
+    background: pink;
+}
+
+.order_block {
+    width: 80%;
+    height: 150px;
+    border-bottom: 1px dotted;
+    margin: 0 auto;
+}
+
+.order_form {
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 3rem;
 }
