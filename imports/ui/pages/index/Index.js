@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/header/Header';
 import Menu from '../../components/menu/Menu';
+import Accounts from '../../components/accounts';
 
 const Index = () => (
     <div className="wrapper">
@@ -12,6 +13,7 @@ const Index = () => (
                 <meta name="description" content="This is homepage. Just Helmet SSR demo" />
                 <meta property="og:title" content="This is homepage. Just Helmet SSR demo for OG" />
             </Helmet>
+            <Accounts />
             <Header />
             <Menu />
         </div>

@@ -17,7 +17,7 @@ onPageLoad(sink => {
     const context = {};
     const todos = todosGetAll.call({});
     const menu = getAllMenu.call({});
-    const accounts = accountsFind.call({ email: 'lkdnvc@yandex.ru' });
+    const accounts = accountsFind.call({ email: 'lkdnvc@gmail.com' });
 
     const store = createStore(mainReducer, { todos, menu, accounts }, applyMiddleware(thunk));
 

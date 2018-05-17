@@ -1,0 +1,13 @@
+{
+    "somePrivateKey": "123456789",
+    "public": {
+        "somePublicKey": "987654321"
+    },
+    "galaxy.meteor.com": {
+        "env": {
+            "MONGO_URL": "mongodb://user:pass@gcp-europe-west1-cpu.2.dblayer.com:16564/cacio?ssl=true",
+            "MONGO_OPLOG_URL":
+                "mongodb://oploguser:oplogpass@gcp-europe-west1-cpu.2.dblayer.com:16569/local?authSource=admin&ssl=true"
+        }
+    }
+}
