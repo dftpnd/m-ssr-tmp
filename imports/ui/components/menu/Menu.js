@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { array, object } from 'prop-types';
+import { Cookies } from 'meteor/ostrio:cookies';
+// import { array } from 'prop-types';
 import i18n from 'meteor/universe:i18n';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
+const cookies = new Cookies();
 const T = i18n.createComponent();
+
+i18n.setLocale('ru-RU');
+
 class Menu extends React.Component {
     constructor(props) {
         super(props);
@@ -14,25 +19,23 @@ class Menu extends React.Component {
             stateOrder: false,
             orderItem: {}
         };
-        // This line is important!
-        console.log('menuStub', menuStub);
     }
 
     handlerOrder = orderItem => {
         this.setState({ stateOrder: true, orderItem });
     };
-    cancel = name => {
+    cancel = () => {
         this.setState({ stateOrder: false });
     };
 
     render() {
+        //const cookies = new Cookies();
         return (
             <section className="main_menu">
-                <T>common.navbar.Language</T>
                 <div className="menu">
                     {menuStub.map((item, index) => (
                         <div className="headmenu" key={index}>
-                            {item.name}
+                            <T>{item.title}</T>
                         </div>
                     ))}
                 </div>
@@ -88,11 +91,14 @@ class Menu extends React.Component {
     }
 }
 
-Menu.propTypes = {
-    menu: array.isRequired
-};
+// Menu.propTypes = {
+//     menu: array.isRequired
+// };
 
-Menu.defaultProps = {};
-const mapStateToProps = state => ({ menu: state.menu });
+// Menu.defaultProps = {
+//     menu: []
+// };
+// const mapStateToProps = state => ({ menu: state.menu });
+const mapStateToProps = () => ({});
 
 export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Menu);
