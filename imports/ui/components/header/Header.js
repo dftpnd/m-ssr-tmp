@@ -10,7 +10,7 @@ const Header = () => (
                 </div>
                 <div className="header_number">891837791821</div>
             </div>
-            <nav className="nav">
+            {/* <nav className="nav">
                 <a href="">Комбо & 1 обед</a>
                 <a href="">PIZZA</a>
                 <a href="">Паста</a>
@@ -19,7 +19,7 @@ const Header = () => (
                 <a href="">Супы</a>
                 <a href="">Десерты</a>
                 <a href="">Напитки</a>
-            </nav>
+            </nav> */}
         </div>
     </header>
 );

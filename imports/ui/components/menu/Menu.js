@@ -48,13 +48,18 @@ class Menu extends React.Component {
                                         <p>
                                             {subItem.name}
                                             <br />
-                                            {subItem.name_2}
+                                            <span className="text_span">{subItem.name_2}</span>
                                         </p>
                                         <p>
-                                            Цена: {subItem.price}
-                                            <br /> {subItem.price_2}
+                                            <b>{subItem.price}</b>
+                                            <br />
+                                            <span
+                                                className="text_span_button"
+                                                onClick={() => this.handlerOrder(subItem)}
+                                            >
+                                                Заказать
+                                            </span>
                                         </p>
-                                        <button onClick={() => this.handlerOrder(subItem)}>Заказать</button>
                                     </div>
                                 );
                             })},
@@ -65,24 +70,10 @@ class Menu extends React.Component {
                     <div className="order">
                         <div className="order_block">
                             <h2>{this.state.orderItem.name}</h2>
-                            <h3>Сумма к оплате 300 рублей</h3>
-                            <p>
-                                Введите сумму: <input type="text" id="input_sum" />
-                            </p>
-                            <button>Оплатить</button> <br />
-                            <button onClick={this.cancel}>Отмена</button>
                         </div>
-                        <div className="order_form">
-                            <div className="order_form_delivery">
-                                <h2>Доставка</h2>
-                                <input type="checkbox" value="Курьером" />
-                                <input type="checkbox" value="Заберу сам(а)" />
-                            </div>
-                            <div className="order_form_paymen">
-                                <h2>Оплата</h2>
-                                <input type="radio" value="Картой" />
-                                <input type="radio" value="Наличными" />
-                            </div>
+                        <div className="order_block_button">
+                            <button onClick={this.cancel}>Отменить</button>
+                            <button>Оформить заказ</button>
                         </div>
                     </div>
                 )}
