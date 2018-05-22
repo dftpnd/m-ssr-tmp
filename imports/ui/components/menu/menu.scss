@@ -1,7 +1,6 @@
 .main_menu {
     display: flex;
     margin: 0 auto;
-    width: 794px;
     flex-wrap: wrap;
 }
 
@@ -22,7 +21,6 @@
 
 .menu_list {
     display: flex;
-    width: 794px;
     overflow-x: auto;
     margin-top: 2rem;
 }
@@ -35,8 +33,12 @@
     max-width: 100%;
     min-width: 100%;
     flex-shrink: 0;
-    // border: 3px solid yellow;
     border-right: none;
+
+    &__box {
+        max-width: 700px;
+        margin: 0 auto;
+    }
 }
 
 .text {
@@ -44,16 +46,20 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.2rem;
+
     p {
         margin-bottom: 0;
+
         span {
             font-size: 16px;
             color: #848383;
         }
+
         .text_span_button {
             cursor: pointer;
         }
     }
+
     p:first-child {
         width: 84%;
         font-size: 20px;
