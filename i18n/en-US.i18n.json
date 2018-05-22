@@ -2,15 +2,16 @@
     "_locale": "en-US",
     "_namespace": "common",
     "navbar": {
-        "userName": "User name",
-        "Language": "Language",
-        "enUS": "English - U.S.",
-        "jaJP": "Japanese",
-        "deDE": "German",
-        "Index": "Index",
-        "Documents": "Documents",
-        "Signup": "Sign Up",
-        "Login": "Log In",
-        "Logout": "Logout"
+        "Language": "Language"
+    },
+    "menu": {
+        "title": {
+            "salads": "Salads",
+            "snacks": "Snacks",
+            "pizza": "Pizza",
+            "pasta": "Pasta",
+            "hotDishes": "Hot Dishes",
+            "soups": "Soups"
+        }
     }
 }

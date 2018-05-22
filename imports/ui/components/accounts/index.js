@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { string, func, bool } from 'prop-types';
 
-const Accounts = ({ accounts }) => <div className="accounts">{accounts.email}</div>;
+const Accounts = ({ accounts }) => <div className="accounts">++{accounts.email}++</div>;
 
 Accounts.propTypes = {};
 Accounts.defaultProps = {};

@@ -1,6 +1,7 @@
 .main_menu {
     display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    width: 794px;
     flex-wrap: wrap;
 }
 
@@ -12,14 +13,18 @@
 }
 
 .headmenu {
-    padding: 0 30px;
-    border: 1px solid red;
+    padding: 0.2rem 30px;
+    // border: 1px solid red;
+    &:first-child {
+        padding-left: 0;
+    }
 }
 
 .menu_list {
     display: flex;
-    width: 80%;
+    width: 794px;
     overflow-x: auto;
+    margin-top: 2rem;
 }
 
 .menu_list::-webkit-scrollbar {
@@ -30,7 +35,7 @@
     max-width: 100%;
     min-width: 100%;
     flex-shrink: 0;
-    border: 3px solid yellow;
+    // border: 3px solid yellow;
     border-right: none;
 }
 
@@ -38,30 +43,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.4rem;
-
+    margin-bottom: 1.2rem;
+    p {
+        margin-bottom: 0;
+        span {
+            font-size: 16px;
+            color: #848383;
+        }
+        .text_span_button {
+            cursor: pointer;
+        }
+    }
     p:first-child {
-        width: 80%;
+        width: 84%;
+        font-size: 20px;
+        color: black;
     }
 }
 
 .order {
-    width: 80%;
-    height: 500px;
-    border: 1px solid;
-    background: pink;
+    width: 794px;
+    background-color: rgba(245, 166, 35, 0.1);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 .order_block {
-    width: 80%;
+    width: 760px;
     height: 150px;
-    border-bottom: 1px dotted;
+    // border-bottom: 1px dotted;
     margin: 0 auto;
+    margin-top: 4rem;
 }
 
-.order_form {
-    width: 80%;
-    height: 100px;
+.order_block_button {
+    width: 760px;
     margin: 0 auto;
-    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-bottom: 2rem;
+        margin-right: 1rem;
+        order: 1;
+    }
 }

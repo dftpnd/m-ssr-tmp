@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { array, object } from 'prop-types';
+import { Cookies } from 'meteor/ostrio:cookies';
+// import { array } from 'prop-types';
 import i18n from 'meteor/universe:i18n';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
+const cookies = new Cookies();
 const T = i18n.createComponent();
+
+i18n.setLocale('ru-RU');
+
 class Menu extends React.Component {
     constructor(props) {
         super(props);
@@ -14,25 +19,23 @@ class Menu extends React.Component {
             stateOrder: false,
             orderItem: {}
         };
-        // This line is important!
-        console.log('menuStub', menuStub);
     }
 
     handlerOrder = orderItem => {
         this.setState({ stateOrder: true, orderItem });
     };
-    cancel = name => {
+    cancel = () => {
         this.setState({ stateOrder: false });
     };
 
     render() {
+        //const cookies = new Cookies();
         return (
             <section className="main_menu">
-                <T>common.navbar.Language</T>
                 <div className="menu">
                     {menuStub.map((item, index) => (
                         <div className="headmenu" key={index}>
-                            {item.name}
+                            <T>{item.title}</T>
                         </div>
                     ))}
                 </div>
@@ -45,13 +48,18 @@ class Menu extends React.Component {
                                         <p>
                                             {subItem.name}
                                             <br />
-                                            {subItem.name_2}
+                                            <span className="text_span">{subItem.name_2}</span>
                                         </p>
                                         <p>
-                                            Цена: {subItem.price}
-                                            <br /> {subItem.price_2}
+                                            <b>{subItem.price}</b>
+                                            <br />
+                                            <span
+                                                className="text_span_button"
+                                                onClick={() => this.handlerOrder(subItem)}
+                                            >
+                                                Заказать
+                                            </span>
                                         </p>
-                                        <button onClick={() => this.handlerOrder(subItem)}>Заказать</button>
                                     </div>
                                 );
                             })},
@@ -62,24 +70,10 @@ class Menu extends React.Component {
                     <div className="order">
                         <div className="order_block">
                             <h2>{this.state.orderItem.name}</h2>
-                            <h3>Сумма к оплате 300 рублей</h3>
-                            <p>
-                                Введите сумму: <input type="text" id="input_sum" />
-                            </p>
-                            <button>Оплатить</button> <br />
-                            <button onClick={this.cancel}>Отмена</button>
                         </div>
-                        <div className="order_form">
-                            <div className="order_form_delivery">
-                                <h2>Доставка</h2>
-                                <input type="checkbox" value="Курьером" />
-                                <input type="checkbox" value="Заберу сам(а)" />
-                            </div>
-                            <div className="order_form_paymen">
-                                <h2>Оплата</h2>
-                                <input type="radio" value="Картой" />
-                                <input type="radio" value="Наличными" />
-                            </div>
+                        <div className="order_block_button">
+                            <button onClick={this.cancel}>Отменить</button>
+                            <button>Оформить заказ</button>
                         </div>
                     </div>
                 )}
@@ -88,11 +82,14 @@ class Menu extends React.Component {
     }
 }
 
-Menu.propTypes = {
-    menu: array.isRequired
-};
+// Menu.propTypes = {
+//     menu: array.isRequired
+// };
 
-Menu.defaultProps = {};
-const mapStateToProps = state => ({ menu: state.menu });
+// Menu.defaultProps = {
+//     menu: []
+// };
+// const mapStateToProps = state => ({ menu: state.menu });
+const mapStateToProps = () => ({});
 
 export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Menu);
