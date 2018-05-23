@@ -1,5 +1,6 @@
 export default [
     {
+        key: 'salads',
         name: 'Салаты',
         title: 'common.menu.title.salads',
         list: [
@@ -49,6 +50,7 @@ export default [
         ]
     },
     {
+        key: 'snacks',
         name: 'Закуски',
         title: 'common.menu.title.snacks',
         list: [
@@ -125,6 +127,7 @@ export default [
         ]
     },
     {
+        key: 'pizza',
         name: 'Pizza',
         title: 'common.menu.title.pizza',
         info: [{ type: 'ru', val: 'test.test.test' }],
@@ -263,6 +266,7 @@ export default [
         ]
     },
     {
+        key: 'pasta',
         name: 'Pasta',
         title: 'common.menu.title.pasta',
         list: [
@@ -341,6 +345,7 @@ export default [
         ]
     },
     {
+        key: 'hotDishes',
         name: 'Горячие блюда',
         title: 'common.menu.title.hotDishes',
         list: [
@@ -384,6 +389,7 @@ export default [
         ]
     },
     {
+        key: 'soups',
         name: 'Супы',
         title: 'common.menu.title.soups',
         list: [

@@ -1,13 +1,15 @@
 import React from 'react';
+import cls from 'classnames';
+import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
+
 import { connect } from 'react-redux';
-import { Cookies } from 'meteor/ostrio:cookies';
 // import { array } from 'prop-types';
 import i18n from 'meteor/universe:i18n';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
-const cookies = new Cookies();
 const T = i18n.createComponent();
 
 i18n.setLocale('ru-RU');
@@ -28,8 +30,18 @@ class Menu extends React.Component {
         this.setState({ stateOrder: false });
     };
 
+    paneDidMount = node => {
+        if (node) {
+            // node.addEventListener('scroll', throttle(() => this.setState({ scroll: 0 }), 100));
+            // node.addEventListener('scroll', debounce(() => this.setState({ scroll: 1 }), 100));
+        }
+    };
+
     render() {
-        //const cookies = new Cookies();
+        const anchorLink = key => {
+            return '#' + key;
+        };
+
         return (
             <section className="main_menu">
                 <div className="menu">
@@ -38,14 +50,17 @@ class Menu extends React.Component {
                         <div className="menu_scroll_block" />
                     </div>
                     {menuStub.map((item, index) => (
-                        <div className="headmenu" key={index}>
+                        <a href={anchorLink(item.key)} className="headmenu" key={index}>
                             <T>{item.title}</T>
-                        </div>
+                        </a>
                     ))}
                 </div>
-                <div className="menu_list">
+                <div
+                    className={cls('menu_list', { 'menu_list--scrolled': this.state.scroll === 0 })}
+                    ref={this.paneDidMount}
+                >
                     {menuStub.map((item, index) => (
-                        <div className="list" key={index}>
+                        <div className="list" key={index} id={item.key}>
                             <div className="list__box">
                                 {item.list.map((subItem, i) => {
                                     return (

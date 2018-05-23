@@ -34,23 +34,46 @@
 
 .menu_list {
     display: flex;
+    align-items: flex-start;
     overflow-x: auto;
     margin-top: 2rem;
+    width: 100%;
+    border: 1px solid blue;
+    margin-bottom: 20rem;
+    max-height: fit-content;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-x: repeat(100%);
 }
 
 .menu_list::-webkit-scrollbar {
-    display: none;
+    // display: none;
 }
 
 .list {
     max-width: 100%;
     min-width: 100%;
+    width: 100%;
     flex-shrink: 0;
     border-right: none;
+    border: 1px solid red;
+    scroll-snap-align: start;
+    //scroll-snap-align: center center;
+    // scroll-snap-type: mandatory;
+    // scroll-snap-points-x: repeat(100%);
+
+    // &:not(:target) .text:nth-child(n + 4) {
+    //     display: none;
+    // }
 
     &__box {
         max-width: 700px;
         margin: 0 auto;
+    }
+}
+
+.menu_list--scrolled {
+    .text {
+        display: flex !important;
     }
 }
 
