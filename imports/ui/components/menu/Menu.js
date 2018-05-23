@@ -33,6 +33,10 @@ class Menu extends React.Component {
         return (
             <section className="main_menu">
                 <div className="menu">
+                    <div className="menu_scroll">
+                        <div className="menu_scroll_border" />
+                        <div className="menu_scroll_block" />
+                    </div>
                     {menuStub.map((item, index) => (
                         <div className="headmenu" key={index}>
                             <T>{item.title}</T>
@@ -42,27 +46,29 @@ class Menu extends React.Component {
                 <div className="menu_list">
                     {menuStub.map((item, index) => (
                         <div className="list" key={index}>
-                            {item.list.map((subItem, i) => {
-                                return (
-                                    <div className="text" key={i}>
-                                        <p>
-                                            {subItem.name}
-                                            <br />
-                                            <span className="text_span">{subItem.name_2}</span>
-                                        </p>
-                                        <p>
-                                            <b>{subItem.price}</b>
-                                            <br />
-                                            <span
-                                                className="text_span_button"
-                                                onClick={() => this.handlerOrder(subItem)}
-                                            >
-                                                Заказать
-                                            </span>
-                                        </p>
-                                    </div>
-                                );
-                            })},
+                            <div className="list__box">
+                                {item.list.map((subItem, i) => {
+                                    return (
+                                        <div className="text" key={i}>
+                                            <p>
+                                                {subItem.name}
+                                                <br />
+                                                <span className="text_span">{subItem.name_2}</span>
+                                            </p>
+                                            <p>
+                                                <b>{subItem.price}</b>
+                                                <br />
+                                                <span
+                                                    className="text_span_button"
+                                                    onClick={() => this.handlerOrder(subItem)}
+                                                >
+                                                    Заказать
+                                                </span>
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     ))}
                 </div>
