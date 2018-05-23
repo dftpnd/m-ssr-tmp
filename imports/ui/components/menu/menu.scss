@@ -19,6 +19,19 @@
     }
 }
 
+.menu_scroll_border {
+    position: relative;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.menu_scroll_block {
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    background: #000;
+}
+
 .menu_list {
     display: flex;
     overflow-x: auto;

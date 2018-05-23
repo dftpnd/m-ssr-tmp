@@ -33,6 +33,10 @@ class Menu extends React.Component {
         return (
             <section className="main_menu">
                 <div className="menu">
+                    <div className="menu_scroll">
+                        <div className="menu_scroll_border" />
+                        <div className="menu_scroll_block" />
+                    </div>
                     {menuStub.map((item, index) => (
                         <div className="headmenu" key={index}>
                             <T>{item.title}</T>
