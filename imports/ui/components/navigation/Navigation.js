@@ -13,6 +13,7 @@ const T = i18n.createComponent();
 const Navigation = props => {
     return (
         <nav className="nav">
+            <div className="nav_scroll_border" />
             <section className={cls('nav__menu', 'brake')}>
                 {menuStub.map((item, index) => (
                     <a
