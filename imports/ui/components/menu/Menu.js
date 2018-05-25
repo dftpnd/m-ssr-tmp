@@ -6,6 +6,7 @@ import throttle from 'lodash/throttle';
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
 
+import Navigation from '../navigation/Navigation';
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
@@ -78,15 +79,7 @@ class Menu extends React.Component {
                         <div className="menu_scroll_border" />
                         <div className="menu_scroll_block" />
                     </div>
-                    {menuStub.map((item, index) => (
-                        <a
-                            href={`#${item.key}`}
-                            className={cls('headmenu', { headmenu__active: this.state.activeIndex === index })}
-                            key={index}
-                        >
-                            <T>{item.title}</T>
-                        </a>
-                    ))}
+                    <Navigation activeIndex={this.state.activeIndex} />
                 </div>
                 <div
                     className={cls('menu_list', { 'menu_list--scrolled': this.state.scroll === 0 })}
@@ -136,13 +129,6 @@ class Menu extends React.Component {
     }
 }
 
-// Menu.propTypes = {
-//     menu: array.isRequired
-// };
-
-// Menu.defaultProps = {
-//     menu: []
-// };
 // const mapStateToProps = state => ({ menu: state.menu });
 const mapStateToProps = () => ({});
 

@@ -11,18 +11,6 @@
     display: flex;
 }
 
-.headmenu {
-    padding: 0.2rem 30px;
-    // border: 1px solid red;
-    &:first-child {
-        padding-left: 0;
-    }
-
-    &__active {
-        color: red;
-    }
-}
-
 .menu_scroll_border {
     position: relative;
     border: 1px solid black;

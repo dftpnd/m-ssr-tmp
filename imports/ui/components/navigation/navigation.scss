@@ -1,0 +1,15 @@
+.nav {
+    border: 1px solid red;
+}
+
+.headmenu {
+    padding: 0.2rem 30px;
+    // border: 1px solid red;
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &__active {
+        color: red;
+    }
+}
