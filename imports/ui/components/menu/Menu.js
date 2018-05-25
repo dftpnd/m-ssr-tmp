@@ -24,6 +24,15 @@ class Menu extends React.Component {
             activeIndex: 0
         };
     }
+    reload = () => setTimeout(window.location.reload.bind(window.location), 1000);
+
+    componentDidMount = () => {
+        window.addEventListener('resize', this.reload);
+    };
+
+    componentWillUnmount = () => {
+        window.removeEventListener('resize', this.reload);
+    };
 
     handlerOrder = orderItem => {
         this.setState({ stateOrder: true, orderItem });
@@ -31,6 +40,10 @@ class Menu extends React.Component {
 
     cancel = () => {
         this.setState({ stateOrder: false });
+    };
+
+    handleWindowResize = () => {
+        console.log('123');
     };
 
     setAnchor = activeIndex => {
@@ -56,6 +69,17 @@ class Menu extends React.Component {
         }
     };
 
+    endScroll = e => {
+        if (this.state.nodeWidth) {
+            const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
+            this.setState({ activeIndex });
+            this.setAnchor(activeIndex);
+        }
+    };
+
+    updateNodeWidth = (e, node) => {
+        console.log(e, node);
+    };
     paneDidMount = node => {
         const nodeWidth = Math.floor(node.getBoundingClientRect().width);
         this.setState({ nodeWidth });
@@ -65,14 +89,12 @@ class Menu extends React.Component {
                 node.addEventListener('scroll', throttle(e => this.startScroll(e), 100));
             }
             node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
+
+            node.addEventListener('resize', debounce(e => this.updateNodeWidth(e, node), 100));
         }
     };
 
     render() {
-        const anchorLink = key => {
-            return '#' + key;
-        };
-
         return (
             <section className="main_menu">
                 <h1>{this.state.activeIndex}</h1>
@@ -83,7 +105,7 @@ class Menu extends React.Component {
                     </div>
                     {menuStub.map((item, index) => (
                         <a
-                            href={anchorLink(item.key)}
+                            href={`#${item.key}`}
                             className={cls('headmenu', { headmenu__active: this.state.activeIndex === index })}
                             key={index}
                         >
