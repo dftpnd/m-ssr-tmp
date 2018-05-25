@@ -28,14 +28,23 @@ class Menu extends React.Component {
     handlerOrder = orderItem => {
         this.setState({ stateOrder: true, orderItem });
     };
+
     cancel = () => {
         this.setState({ stateOrder: false });
+    };
+
+    setAnchor = activeIndex => {
+        const anchors = ['salads', 'snacks', 'pizza', 'pasta', 'hotDishes', 'soups'];
+        const activeAnchors = anchors[activeIndex];
+        console.log('activeAnchors', activeAnchors);
+        window.location.hash = `#${activeAnchors}`;
     };
 
     startScroll = e => {
         if (this.state.nodeWidth) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
             this.setState({ activeIndex });
+            this.setAnchor(activeIndex);
         }
     };
 
@@ -43,6 +52,7 @@ class Menu extends React.Component {
         if (this.state.nodeWidth) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
             this.setState({ activeIndex });
+            this.setAnchor(activeIndex);
         }
     };
 
