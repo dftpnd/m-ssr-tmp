@@ -86,7 +86,11 @@ class Menu extends React.Component {
                     ref={this.paneDidMount}
                 >
                     {menuStub.map((item, index) => (
-                        <div className="list" key={index} id={item.key}>
+                        <div
+                            className={cls('list', { list__active: index === this.state.activeIndex })}
+                            key={index}
+                            id={item.key}
+                        >
                             <div className="list__box">
                                 {item.list.map((subItem, i) => {
                                     return (

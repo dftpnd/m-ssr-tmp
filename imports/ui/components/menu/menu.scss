@@ -31,7 +31,6 @@
     margin-top: 2rem;
     width: 100%;
     border: 1px solid blue;
-    margin-bottom: 20rem;
     max-height: fit-content;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(100%);
@@ -53,9 +52,9 @@
     // scroll-snap-type: mandatory;
     // scroll-snap-points-x: repeat(100%);
 
-    // &:not(:target) .text:nth-child(n + 4) {
-    //     display: none;
-    // }
+    &:not(.list__active) .text:nth-child(n + 4) {
+        display: none;
+    }
 
     &__box {
         max-width: 700px;
