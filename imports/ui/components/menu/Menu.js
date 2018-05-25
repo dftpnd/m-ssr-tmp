@@ -18,8 +18,10 @@ class Menu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            nodeWidth: null,
             stateOrder: false,
-            orderItem: {}
+            orderItem: {},
+            activeIndex: 0
         };
     }
 
@@ -30,10 +32,29 @@ class Menu extends React.Component {
         this.setState({ stateOrder: false });
     };
 
+    startScroll = e => {
+        if (this.state.nodeWidth) {
+            const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
+            this.setState({ activeIndex });
+        }
+    };
+
+    endScroll = e => {
+        if (this.state.nodeWidth) {
+            const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
+            this.setState({ activeIndex });
+        }
+    };
+
     paneDidMount = node => {
+        const nodeWidth = Math.floor(node.getBoundingClientRect().width);
+        this.setState({ nodeWidth });
+
         if (node) {
-            // node.addEventListener('scroll', throttle(() => this.setState({ scroll: 0 }), 100));
-            // node.addEventListener('scroll', debounce(() => this.setState({ scroll: 1 }), 100));
+            if (!('scroll-snap-type' in document.body.style)) {
+                node.addEventListener('scroll', throttle(e => this.startScroll(e), 100));
+            }
+            node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
         }
     };
 
@@ -44,6 +65,7 @@ class Menu extends React.Component {
 
         return (
             <section className="main_menu">
+                <h1>{this.state.activeIndex}</h1>
                 <div className="menu">
                     <div className="menu_scroll">
                         <div className="menu_scroll_border" />
