@@ -3,12 +3,24 @@
     margin: 0 auto;
     position: relative;
     bottom: -2rem;
+
+    &_scroll_border {
+        width: 100%;
+        border-bottom: 1px solid black;
+        position: absolute;
+        top: 1.6rem;
+    }
 }
 
 .nav__menu {
     margin: 0 auto;
-}
+    position: relative;
+    bottom: -2rem;
 
+    & a {
+        text-decoration: none;
+    }
+}
 .headmenu {
     padding: 0.2rem 30px;
 
@@ -17,6 +29,6 @@
     }
 
     &__active {
-        color: red;
+        border-bottom: 4px solid black;
     }
 }
