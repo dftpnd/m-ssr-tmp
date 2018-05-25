@@ -17,6 +17,10 @@
     &:first-child {
         padding-left: 0;
     }
+
+    &__active {
+        color: red;
+    }
 }
 
 .menu_scroll_border {

@@ -72,7 +72,11 @@ class Menu extends React.Component {
                         <div className="menu_scroll_block" />
                     </div>
                     {menuStub.map((item, index) => (
-                        <a href={anchorLink(item.key)} className="headmenu" key={index}>
+                        <a
+                            href={anchorLink(item.key)}
+                            className={cls('headmenu', { headmenu__active: this.state.activeIndex === index })}
+                            key={index}
+                        >
                             <T>{item.title}</T>
                         </a>
                     ))}
