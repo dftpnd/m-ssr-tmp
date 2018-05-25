@@ -4,7 +4,6 @@ import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
 
 import { connect } from 'react-redux';
-// import { array } from 'prop-types';
 import i18n from 'meteor/universe:i18n';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
@@ -26,41 +25,21 @@ class Menu extends React.Component {
     }
     reload = () => setTimeout(window.location.reload.bind(window.location), 1000);
 
-    componentDidMount = () => {
-        window.addEventListener('resize', this.reload);
-    };
+    componentDidMount = () => window.addEventListener('resize', this.reload);
 
-    componentWillUnmount = () => {
-        window.removeEventListener('resize', this.reload);
-    };
+    componentWillUnmount = () => window.removeEventListener('resize', this.reload);
 
-    handlerOrder = orderItem => {
-        this.setState({ stateOrder: true, orderItem });
-    };
+    handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
-    cancel = () => {
-        this.setState({ stateOrder: false });
-    };
-
-    handleWindowResize = () => {
-        console.log('123');
-    };
+    cancel = () => this.setState({ stateOrder: false });
 
     setAnchor = activeIndex => {
         const anchors = ['salads', 'snacks', 'pizza', 'pasta', 'hotDishes', 'soups'];
         const activeAnchors = anchors[activeIndex];
-        console.log('activeAnchors', activeAnchors);
+
         window.location.hash = `#${activeAnchors}`;
     };
 
-    startScroll = e => {
-        if (this.state.nodeWidth) {
-            const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-            this.setState({ activeIndex });
-            this.setAnchor(activeIndex);
-        }
-    };
-
     endScroll = e => {
         if (this.state.nodeWidth) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
@@ -77,11 +56,9 @@ class Menu extends React.Component {
         }
     };
 
-    updateNodeWidth = (e, node) => {
-        console.log(e, node);
-    };
     paneDidMount = node => {
         const nodeWidth = Math.floor(node.getBoundingClientRect().width);
+
         this.setState({ nodeWidth });
 
         if (node) {
@@ -89,8 +66,6 @@ class Menu extends React.Component {
                 node.addEventListener('scroll', throttle(e => this.startScroll(e), 100));
             }
             node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
-
-            node.addEventListener('resize', debounce(e => this.updateNodeWidth(e, node), 100));
         }
     };
 
