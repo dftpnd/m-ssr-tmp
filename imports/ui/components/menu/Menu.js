@@ -22,10 +22,16 @@ class Menu extends React.Component {
             nodeWidth: null,
             stateOrder: false,
             orderItem: {},
-            activeIndex: 0
+            activeIndex: 0,
+            snapType: false
         };
     }
 
+    componentDidUpdate = () => {
+        if ('scroll-snap-type' in document.body.style && !this.state.snapType) {
+            this.setState({ snapType: true });
+        }
+    };
     handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
     cancel = () => this.setState({ stateOrder: false });
@@ -46,11 +52,7 @@ class Menu extends React.Component {
     endScroll = e => {
         if (this.state.nodeWidth) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-            const newState = { activeIndex };
-
-            if ('scroll-snap-type' in document.body.style) {
-                newState.scroll = 0;
-            }
+            const newState = { activeIndex, scroll: 0 };
 
             this.setState(newState);
             this.setAnchor(activeIndex);
@@ -73,7 +75,11 @@ class Menu extends React.Component {
             <section className="">
                 <Navigation activeIndex={this.state.activeIndex} />
                 <div
-                    className={cls('menu_list', { 'menu_list--scrolled': this.state.scroll === 1 })}
+                    className={cls(
+                        'menu_list',
+                        { 'menu_list--scrolled': this.state.scroll === 1 },
+                        { 'menu_list--snap': this.state.snapType }
+                    )}
                     ref={this.paneDidMount}
                 >
                     {menuStub.map((item, index) => (

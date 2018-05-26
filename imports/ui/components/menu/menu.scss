@@ -19,18 +19,22 @@
     min-height: 100vh;
     display: flex;
     align-items: stretch;
-    overflow-x: auto;
+    overflow-x: hidden;
     width: 100%;
     max-height: fit-content;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(100%);
+
+    &--snap {
+        overflow-x: scroll;
+    }
 
     &::-webkit-scrollbar {
         display: none;
     }
 }
 
-.list {
+.menu_list .list {
     max-width: 100%;
     min-width: 100%;
     width: 100%;
