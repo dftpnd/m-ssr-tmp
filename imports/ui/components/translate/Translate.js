@@ -2,11 +2,10 @@ import React from 'react';
 import i18n from 'meteor/universe:i18n';
 import { array } from 'prop-types';
 
-i18n.setLocale('ru-RU');
 const T = i18n.createComponent();
-
 // link: [{ type: 'ru', val: 'menu.title.salads' }],
 const Translate = ({ link }) => {
+    // i18n.setLocale('ru-RU');
     const locale = i18n.getLocale();
     const dictionary = { 'ru-RU': 'ru', 'en-US': 'en' };
     const type = dictionary[locale];

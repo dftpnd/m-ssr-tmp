@@ -10,8 +10,6 @@ import menuStub from '../menu/menu-mock';
 
 const T = i18n.createComponent();
 
-i18n.setLocale('ru-RU');
-
 const Navigation = props => {
     return (
         <nav className="nav">

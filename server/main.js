@@ -5,7 +5,7 @@ import '../imports/startup/server';
 
 i18n.setOptions({ defaultLocale: 'ru-RU' });
 
-//WebApp.addHtmlAttributeHook(() => ({ lang: 'ru' }));
+WebApp.addHtmlAttributeHook(() => ({ lang: 'ru' }));
 
 WebApp.connectHandlers.use((req, res, next) => {
     const cookies = req.Cookies;

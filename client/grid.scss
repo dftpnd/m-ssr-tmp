@@ -1,53 +1,105 @@
-// body:not(.no-grid) {
-//     margin: 0;
-// }
+body:not(.no-grid) {
+    margin: 0;
+}
 
-// body:not(.no-grid):after {
-//     content: '';
-//     position: fixed;
-//     z-index: 999999999;
-//     width: 940px;
-//     left: 50%;
-//     margin-left: -396.5px;
-//     pointer-events: none;
-//     top: 0;
-//     height: 100vh;
-//     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII='),
-//         url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUCB1j6OvrMwEABTcB30rDe3EAAAAASUVORK5CYII=');
-//     background-position: 0 0, 80.9px 0, 161.8px 0, 242.7px 0, 323.6px 0, 404.5px 0, 485.4px 0, 566.3px 0, 647.2px 0,
-//         728.1px 0, 0 0px, 0 16px, 0 32px, 0 48px, 0 64px, 0 80px, 0 96px, 0 112px, 0 128px, 0 144px, 0 160px, 0 176px,
-//         0 192px, 0 208px, 0 224px, 0 240px, 0 256px, 0 272px, 0 288px, 0 304px, 0 320px, 0 336px, 0 352px, 0 368px,
-//         0 384px, 0 400px, 0 416px, 0 432px, 0 448px, 0 464px, 0 480px, 0 496px, 0 512px, 0 528px, 0 544px, 0 560px,
-//         0 576px, 0 592px, 0 608px, 0 624px, 0 640px, 0 656px, 0 672px, 0 688px, 0 704px, 0 720px, 0 736px, 0 752px,
-//         0 768px, 0 784px, 0 800px, 0 816px, 0 832px, 0 848px, 0 864px, 0 880px, 0 896px, 0 912px, 0 928px, 0 944px,
-//         0 960px, 0 976px, 0 992px, 0 1008px, 0 1024px, 0 1040px, 0 1056px, 0 1072px, 0 1088px, 0 1104px, 0 1120px,
-//         0 1136px, 0 1152px, 0 1168px, 0 1184px, 0 1200px, 0 1216px, 0 1232px, 0 1248px, 0 1264px, 0 1280px, 0 1296px,
-//         0 1312px, 0 1328px, 0 1344px, 0 1360px, 0 1376px, 0 1392px, 0 1408px, 0 1424px;
-//     background-size: 64.9px 1px, 64.9px 1px, 64.9px 1px, 64.9px 1px, 64.9px 1px, 64.9px 1px, 64.9px 1px, 64.9px 1px,
-//         64.9px 1px, 64.9px 1px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px,
-//         1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px, 1px 8px;
-//     background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y,
-//         repeat-y, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
-//         repeat-x, repeat-x, repeat-x;
-// }
+body:not(.no-grid):after {
+}
+// https://css-tricks.com/building-css-grid-overlay/
+// CSS  Result
+// EDIT ON
+:root {
+    --offset: 1.5rem;
+    --max_width: 72rem;
+    --columns: 6;
+    --gutter: 0.5rem;
+    --baseline: 3rem;
+    --baseline-shift: 2rem;
+    --color: hsla(204, 80%, 72%, 0.25);
+    --color-text: hsla(204, 80%, 72%, 1);
+    --media-query: 'base';
+}
+
+@media (min-width: 35em) {
+    :root {
+        --offset: 2rem;
+        --gutter: 0.75rem;
+        --color: hsla(286, 51%, 44%, 0.25);
+        --color-text: hsla(286, 51%, 44%, 1);
+        --media-query: 'small';
+    }
+}
+
+@media (min-width: 48em) {
+    :root {
+        --offset: 2rem;
+        --columns: 12;
+        --max_width: 940px;
+        --gutter: 1rem;
+        --color: hsla(204, 80%, 72%, 0.25);
+        --color-text: hsla(204, 80%, 72%, 1);
+        --media-query: 'medium';
+    }
+}
+
+@media (min-width: 70em) {
+    :root {
+        --offset: 2rem;
+        --max_width: 940px;
+        --color: hsla(286, 51%, 44%, 0.25);
+        --color-text: hsla(286, 51%, 44%, 1);
+        --media-query: 'large';
+    }
+}
+
+/* Helper variables */
+:root {
+    --repeating-width: calc(100% / var(--columns));
+    --column-width: calc((100% / var(--columns)) - var(--gutter));
+    --background-width: calc(100% + var(--gutter));
+    --background-columns: repeating-linear-gradient(
+        to right,
+        var(--color),
+        var(--color) var(--column-width),
+        transparent var(--column-width),
+        transparent var(--repeating-width)
+    );
+    --background-baseline: repeating-linear-gradient(
+        to bottom,
+        var(--color),
+        var(--color) 1px,
+        transparent 1px,
+        transparent var(--baseline)
+    );
+}
+
+html {
+    position: relative;
+}
+
+html::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: calc(100% - (2 * var(--offset)));
+    max-width: var(--max_width);
+    min-height: 100vh;
+    content: '';
+    background-image: var(--background-columns);
+    background-size: var(--background-width) 100%;
+    background-position: 0 var(--baseline-shift);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+html::after {
+    content: var(--media-query);
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    color: var(--color-text);
+}

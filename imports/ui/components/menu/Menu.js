@@ -1,7 +1,6 @@
 import React from 'react';
 import cls from 'classnames';
 import debounce from 'lodash/debounce';
-import throttle from 'lodash/throttle';
 
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
@@ -26,11 +25,6 @@ class Menu extends React.Component {
             activeIndex: 0
         };
     }
-    // reload = () => setTimeout(window.location.reload.bind(window.location), 1000);
-
-    // componentDidMount = () => window.addEventListener('resize', this.reload);
-
-    // componentWillUnmount = () => window.removeEventListener('resize', this.reload);
 
     handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
@@ -63,10 +57,6 @@ class Menu extends React.Component {
         this.setState({ nodeWidth });
 
         if (node) {
-            // if (!('scroll-snap-type' in document.body.style)) {
-            //     node.addEventListener('scroll', throttle(e => this.startScroll(e), 100));
-            // }
-            // this.startScroll();
             node.addEventListener('scroll', e => this.startScroll(e));
             node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
         }
