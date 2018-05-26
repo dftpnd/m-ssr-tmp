@@ -1,14 +1,22 @@
 .nav {
-    background-color: rgba(233, 244, 122, 0.4);
     margin: 0 auto;
     position: relative;
-    bottom: -2rem;
+    // bottom: -2rem;
 
     &_scroll_border {
         width: 100%;
         border-bottom: 1px solid black;
         position: absolute;
-        top: 1.6rem;
+        top: 3.6rem;
+    }
+
+    a {
+        padding-left: 20px;
+        color: black;
+    }
+
+    a:first-child {
+        padding-left: 0;
     }
 }
 
@@ -21,6 +29,7 @@
         text-decoration: none;
     }
 }
+
 .headmenu {
     padding: 0.2rem 30px;
 

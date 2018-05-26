@@ -46,7 +46,13 @@ class Menu extends React.Component {
     endScroll = e => {
         if (this.state.nodeWidth) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-            this.setState({ activeIndex, scroll: 0 });
+            const newState = { activeIndex };
+
+            if ('scroll-snap-type' in document.body.style) {
+                newState.scroll = 0;
+            }
+
+            this.setState(newState);
             this.setAnchor(activeIndex);
         }
     };
