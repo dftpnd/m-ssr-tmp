@@ -11,12 +11,12 @@ body {
     min-height: 100%;
 }
 
-.app {
-    // border: 1px solid black;
-    height: 100%;
+.brake {
+    max-width: 940px;
 }
 
 @import '../imports/ui/pages/index/index.scss';
 @import '../imports/ui/components/header/header.scss';
 @import '../imports/ui/components/menu/menu.scss';
 @import '../imports/ui/components/navigation/navigation.scss';
+@import '../imports/ui/components/order/order.scss';

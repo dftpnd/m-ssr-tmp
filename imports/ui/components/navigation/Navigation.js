@@ -15,7 +15,7 @@ i18n.setLocale('ru-RU');
 const Navigation = props => {
     return (
         <nav className="nav">
-            <section className="main_menu">
+            <section className={cls('nav__menu', 'brake')}>
                 {menuStub.map((item, index) => (
                     <a
                         href={`#${item.key}`}

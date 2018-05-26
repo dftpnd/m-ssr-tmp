@@ -5,67 +5,49 @@
 }
 
 .menu {
-    //grid-column-start: 2;
-    //grid-column-end: 3;
-    //border: 2px solid #396565;
     display: flex;
-}
 
-.menu_scroll_border {
-    position: relative;
-    border: 1px solid black;
-    width: 100%;
-}
-
-.menu_scroll_block {
-    position: absolute;
-    width: 50px;
-    height: 10px;
-    background: #000;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .menu_list {
+    min-height: 100vh;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     overflow-x: auto;
-    margin-top: 2rem;
     width: 100%;
-    border: 1px solid blue;
     max-height: fit-content;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(100%);
-}
 
-.menu_list::-webkit-scrollbar {
-    // display: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .list {
     max-width: 100%;
     min-width: 100%;
     width: 100%;
+    padding-top: 3rem;
     flex-shrink: 0;
     border-right: none;
-    border: 1px solid red;
     scroll-snap-align: start;
-    //scroll-snap-align: center center;
-    // scroll-snap-type: mandatory;
-    // scroll-snap-points-x: repeat(100%);
 
     &:not(.list__active) .text:nth-child(n + 4) {
         display: none;
     }
 
     &__box {
-        max-width: 700px;
+        background-color: rgba(250, 255, 175, 0.4);
         margin: 0 auto;
     }
 }
 
-.menu_list--scrolled {
-    .text {
-        display: flex !important;
-    }
+.menu_list--scrolled .text {
+    display: flex !important;
 }
 
 .text {
@@ -91,31 +73,5 @@
         width: 84%;
         font-size: 20px;
         color: black;
-    }
-}
-
-.order {
-    width: 794px;
-    background-color: rgba(245, 166, 35, 0.1);
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
-}
-
-.order_block {
-    width: 760px;
-    height: 150px;
-    // border-bottom: 1px dotted;
-    margin: 0 auto;
-    margin-top: 4rem;
-}
-
-.order_block_button {
-    width: 760px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    button {
-        margin-bottom: 2rem;
-        margin-right: 1rem;
-        order: 1;
     }
 }

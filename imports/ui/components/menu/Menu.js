@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
 
 import Navigation from '../navigation/Navigation';
+import Order from '../order/Order';
+
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
@@ -24,11 +26,11 @@ class Menu extends React.Component {
             activeIndex: 0
         };
     }
-    reload = () => setTimeout(window.location.reload.bind(window.location), 1000);
+    // reload = () => setTimeout(window.location.reload.bind(window.location), 1000);
 
-    componentDidMount = () => window.addEventListener('resize', this.reload);
+    // componentDidMount = () => window.addEventListener('resize', this.reload);
 
-    componentWillUnmount = () => window.removeEventListener('resize', this.reload);
+    // componentWillUnmount = () => window.removeEventListener('resize', this.reload);
 
     handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
@@ -41,18 +43,16 @@ class Menu extends React.Component {
         window.location.hash = `#${activeAnchors}`;
     };
 
-    endScroll = e => {
-        if (this.state.nodeWidth) {
-            const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-            this.setState({ activeIndex });
-            this.setAnchor(activeIndex);
-        }
+    startScroll = e => {
+        const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
+        this.setState({ activeIndex, scroll: 1 });
+        this.setAnchor(activeIndex);
     };
 
     endScroll = e => {
         if (this.state.nodeWidth) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-            this.setState({ activeIndex });
+            this.setState({ activeIndex, scroll: 0 });
             this.setAnchor(activeIndex);
         }
     };
@@ -63,26 +63,21 @@ class Menu extends React.Component {
         this.setState({ nodeWidth });
 
         if (node) {
-            if (!('scroll-snap-type' in document.body.style)) {
-                node.addEventListener('scroll', throttle(e => this.startScroll(e), 100));
-            }
+            // if (!('scroll-snap-type' in document.body.style)) {
+            //     node.addEventListener('scroll', throttle(e => this.startScroll(e), 100));
+            // }
+            // this.startScroll();
+            node.addEventListener('scroll', e => this.startScroll(e));
             node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
         }
     };
 
     render() {
         return (
-            <section className="main_menu">
-                <h1>{this.state.activeIndex}</h1>
-                <div className="menu">
-                    <div className="menu_scroll">
-                        <div className="menu_scroll_border" />
-                        <div className="menu_scroll_block" />
-                    </div>
-                    <Navigation activeIndex={this.state.activeIndex} />
-                </div>
+            <section className="">
+                <Navigation activeIndex={this.state.activeIndex} />
                 <div
-                    className={cls('menu_list', { 'menu_list--scrolled': this.state.scroll === 0 })}
+                    className={cls('menu_list', { 'menu_list--scrolled': this.state.scroll === 1 })}
                     ref={this.paneDidMount}
                 >
                     {menuStub.map((item, index) => (
@@ -91,7 +86,7 @@ class Menu extends React.Component {
                             key={index}
                             id={item.key}
                         >
-                            <div className="list__box">
+                            <div className={cls('list__box', 'brake')}>
                                 {item.list.map((subItem, i) => {
                                     return (
                                         <div className="text" key={i}>
@@ -117,17 +112,7 @@ class Menu extends React.Component {
                         </div>
                     ))}
                 </div>
-                {this.state.stateOrder && (
-                    <div className="order">
-                        <div className="order_block">
-                            <h2>{this.state.orderItem.name}</h2>
-                        </div>
-                        <div className="order_block_button">
-                            <button onClick={this.cancel}>Отменить</button>
-                            <button>Оформить заказ</button>
-                        </div>
-                    </div>
-                )}
+                {this.state.stateOrder && <Order />}
             </section>
         );
     }
