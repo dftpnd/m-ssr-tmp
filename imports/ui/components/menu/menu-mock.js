@@ -9,8 +9,7 @@ export default [
                 name_2: 'Моцарелла в рассоле, черри, базилик',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'сaprese'
             },
             {
                 name: 'Tonno buono (Тонно буоно) - 230 гр',
@@ -18,8 +17,7 @@ export default [
                     'Тунец, картофель, черри, оливки, перепелиное яйцо, ассорти салата, стручковая фасоль, горчично-медовый соус',
                 price: '330₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'tonnoBuono'
             },
             {
                 name: 'Messina (Мессина) - 230 гр',
@@ -27,16 +25,14 @@ export default [
                     'Говядина, микс салатных листьев, спаржа, виноград, соус чесночный, фисташки, винный и бальзамический уксус',
                 price: '390₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'messina'
             },
             {
                 name: 'Fresco (Фреско) - 230 гр',
                 name_2: 'Лосось с/с, сливочный сыр, листья салата, огурцы, томаты, сельдерей, лимонно-горчичный соус',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'fresco'
             },
             {
                 name: 'Catanese (Катанезе) - 260 гр',
@@ -44,8 +40,7 @@ export default [
                     'Микс салатных листьев, куриная грудка, мякоть апельсина и грейпфрута, орешки кешью с ореховым соусом.',
                 price: '335₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'catanese'
             }
         ]
     },
@@ -58,71 +53,61 @@ export default [
                 name: 'Сыр пармезан (50 гр)',
                 price: '250₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'parmesan'
             },
             {
                 name: 'Сыр камамбер (50 гр)',
                 price: '230₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'camembert'
             },
             {
                 name: 'Сыр горгонзола (50 гр)',
                 price: '200₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'gorgonzola'
             },
             {
                 name: 'Сыр Качокавалло (50 гр)',
                 price: '175₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'cachochavallo'
             },
             {
                 name: 'Пекорино (50 гр)',
                 price: '220₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'pecorino'
             },
             {
                 name: 'Скаморца (50 гр)',
                 price: '230₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'skamorets'
             },
             {
                 name: 'Прошутто крудо (50 гр)',
                 price: '200₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'prosciuttoCrude'
             },
             {
                 name: 'Спинатина пиканте (50 гр)',
                 price: '200₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'spinatinPicante'
             },
             {
                 name: 'Копа стаджионата (50 гр)',
                 price: '300₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'copaStagionata'
             },
             {
                 name: 'Картофель фри (150 гр)',
                 price: '100₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'frenchFries'
             }
         ]
     },
@@ -138,32 +123,28 @@ export default [
                 name_2: 'Томатный соус, моцарелла, копченые колбаски, шампиньоны, сыр скаморца * Можно кальцоне',
                 price: '410₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'boscaiola'
             },
             {
                 name: 'Primavera (Примавера)',
                 name_2: 'Томатный соус, моцарелла, черри, руккола, грана падано, казылык, салями, вяленая свинина',
                 price: '450₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'primavera'
             },
             {
                 name: 'Soleluna (Солелуна)',
                 name_2: 'Томатный соус, моцарелла, тунец, сыр горгонзола, болгарский перец * Можно кальцоне',
                 price: '420₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'soleluna'
             },
             {
                 name: 'A modo mio (А модо мио)',
                 name_2: 'Томатный соус, моцарелла, руккола, бекон, копченые колбаски, кызылык, салями, вяленая свинина',
                 price: '500₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'modoMio'
             },
             {
                 name: 'Gustosa (Густоза)',
@@ -171,48 +152,42 @@ export default [
                     'Томатный соус, моцарелла, руккола, казылык, варено-копченая говядина, куриный рулет, болгарский перец, маслины',
                 price: '500₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'gustosa'
             },
             {
                 name: 'Vegetariana (Веджетариана)',
                 name_2: 'Моцарелла, цукини, баклажан, болгарский перец, шампиньоны, черри, руккола * Можно кальцоне',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'vegetariana'
             },
             {
                 name: 'Diavola (Дьявола)',
                 name_2: 'Томатный соус, моцарелла, пепперони *Степень остроты уточняйте у официанта * Можно кальцоне',
                 price: '370₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'diavola'
             },
             {
                 name: 'Dolce Verona (Дольче Верона)',
                 name_2: 'Моцарелла, пармезан, горгонзола, груша',
                 price: '520₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'dolceVerona'
             },
             {
                 name: 'Friulana (Фриулана)',
                 name_2: 'Томатный соус, моцарелла, салями, черри, руккола, вяленая свинина',
                 price: '400₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'friulana'
             },
             {
                 name: 'Bolognese (Болоньезе)',
                 name_2: 'Томатный соус, говяжий фарш, моцарелла, соус болоньезе * Можно кальцоне',
                 price: '390₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'bolognese'
             },
             {
                 name: 'La metà (Ла мета)',
@@ -220,48 +195,42 @@ export default [
                     'Томатный соус, моцарелла, вяленая свинина, салями, пепперони, оливки, черри, руккола, куриная грудка',
                 price: '450₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'laMeta'
             },
             {
                 name: 'Margherita (Маргерита)',
                 name_2: 'Томатный соус, моцарелла, базилик, черри',
                 price: '450₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'margherita'
             },
             {
                 name: 'Calabrese (Калабрэзэ)',
                 name_2: 'Томатный соус, моцарелла, лук, грибы шампиньоны, куриная грудка, черри * Можно кальцоне',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'calabrese'
             },
             {
                 name: 'Tartufo (Тартуфо)',
                 name_2: 'Томатный соус, моцарелла, шампиньоны, трюфельная паста * Можно кальцоне',
                 price: '450₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'tartufo'
             },
             {
                 name: '4 formaggi (4 формаджи)',
                 name_2: 'Томатный соус, моцарелла, пармезан, дор блю, моцарелла с рассоле * Можно кальцоне',
                 price: '520₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'formaggi'
             },
             {
                 name: 'Napoletana (Наполетана)',
                 name_2: 'Томатный соус, моцарелла в рассоле, прошутто',
                 price: '750₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'napoletana'
             }
         ]
     },
@@ -275,72 +244,63 @@ export default [
                 name_2: 'Тальятелле , грибы шампиньоны, копченые колбаски, сливки, белое вино, пармезан, базилик',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'tagliatelleBoscaiola'
             },
             {
                 name: 'Al pomodoro (Аль помодоро)',
                 name_2: 'Пенне, томатный соус, копченый бекон, сыр пармезан, черри, базилик',
                 price: '320₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'alPomodoro'
             },
             {
                 name: 'Bolognese (Болоньезе)',
                 name_2: 'Спагетти, фарш, морковь, сельдерей, лук, красное вино',
                 price: '320₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'bolognese'
             },
             {
                 name: 'Penne con pollo (Пенне кон полло)',
                 name_2: 'Пенне, томатный соус, курица, сыр пармезан, базилик',
                 price: '300₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'penneConPollo'
             },
             {
                 name: 'Piemontese (Пьемонтезе)',
                 name_2: 'Спагетти, сливочный соус, утка конфи, вешанки, пармезан, базилик',
                 price: '420₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'piemontese'
             },
             {
                 name: 'Carbonara (Карбонара)',
                 name_2: 'Спагетти, бекон, сливки, яйцо, пармезан',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'carbonara'
             },
             {
                 name: 'Nera (Нера)',
                 name_2: 'Черные спагетти, брокколи, стручковая фасоль, моцарелла в рассоле, соус песто',
                 price: '380₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'nera'
             },
             {
                 name: 'Tenera (Тэнэра)',
                 name_2: 'Конкилье регато, сыр рикотта, фисташки',
                 price: '450₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'tenera'
             },
             {
                 name: 'Con calamari',
                 name_2: 'Черные спагетти, кальмар, шпинат, рыбный соус, пармезан, базилик',
                 price: '450₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'conCalamari'
             }
         ]
     },
@@ -354,37 +314,32 @@ export default [
                 name_2: 'Куриная грудка, помидорки чери, руккола, имбирь *Стоимость уточняйте у официанта',
                 price: '',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'chickenSteak'
             },
             {
                 name: 'Стейк стриплойн - 100 гр',
                 price: '330₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'striploinSteak'
             },
             {
                 name: 'Лосось на гриле - 100/150 гр',
                 price: '650₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'grilledSalmon'
             },
             {
                 name: 'Дорада на грила - 100 гр',
                 name_2: '*Цена указана за 100 гр продукта',
                 price: '180₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'grilledDorado'
             },
             {
                 name: 'Орзотто с уткой - 350 гр',
                 price: '500₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'orzottoDuck'
             }
         ]
     },
@@ -398,30 +353,26 @@ export default [
                 name_2: 'Куриные фрикадельки',
                 price: '250₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'noodlesSoup'
             },
             {
                 name: 'Сырный суп - 280 гр',
                 price: '250₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'cheeseSoup'
             },
             {
                 name: 'Грибной суп - 280 гр',
                 price: '250₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'mushroomSoup'
             },
             {
                 name: 'Бузара - 280 гр',
                 name_2: 'Мидии, кальмар, креветки',
                 price: '350₽',
                 cost: [{ type: 'ru', val: 350 }],
-                consist: [{ type: 'ru', val: 'test.test.test' }],
-                title: [{ type: 'ru', val: 'test.test.test' }]
+                dish: 'buzara'
             }
         ]
     }

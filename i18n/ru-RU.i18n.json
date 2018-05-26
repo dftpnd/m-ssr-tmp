@@ -12,6 +12,190 @@
             "pasta": "Pasta",
             "hotDishes": "Горячие блюда",
             "soups": "Супы"
+        },
+        "сaprese": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "tonnoBuono": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "messina": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "fresco": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "catanese": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "parmesan": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "camembert": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "gorgonzola": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "cachochavallo": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "pecorino": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "skamorets": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "prosciuttoCrude": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "spinatinPicante": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "frenchFries": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "boscaiola": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "primavera": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "soleluna": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "modoMio": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "gustosa": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "vegetariana": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "diavola": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "dolceVerona": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "bolognese": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "laMeta": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "margherita": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "calabrese": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "tartufo": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "formaggi": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "napoletana": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "tagliatelleBoscaiola": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "alPomodoro": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "penneConPollo": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "piemontese": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "carbonara": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "nera": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "tenera": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "conCalamari": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "chickenSteak": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "striploinSteak": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "grilledSalmon": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "grilledDorado": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "orzottoDuck": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "noodlesSoup": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "cheeseSoup": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "mushroomSoup": {
+            "title": "Салаты",
+            "consist": "Закуски"
+        },
+        "buzara": {
+            "title": "Салаты",
+            "consist": "Закуски"
         }
     }
 }
