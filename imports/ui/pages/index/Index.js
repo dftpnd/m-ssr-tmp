@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import Header from '../../components/header/Header';
-import Menu from '../../components/menu/Menu';
+import Header from '../../components/header/header';
+import Menu from '../../components/menu/menu';
 
 const Index = () => (
     <div className="wrapper">

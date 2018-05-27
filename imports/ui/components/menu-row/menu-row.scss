@@ -1,0 +1,47 @@
+.menu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+
+    &__content {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__title,
+    &__price {
+        font-size: 20px;
+        font-weight: 400;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+
+    &__title {
+        padding-right: 3rem;
+        // border-bottom: 1px solid red;
+        width: 100%;
+    }
+
+    &__price {
+        font-size: 20px;
+        text-align: right;
+    }
+
+    &__text {
+        // font: 16/1.6 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+        font: 300 16px/18px 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+        // padding-right: 3rem;
+        margin-top: 0;
+    }
+
+    // &__action {
+    // }
+
+    &__order {
+        font-size: 16px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

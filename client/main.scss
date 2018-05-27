@@ -1,5 +1,5 @@
 html {
-    font: 100%/1.6 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+    font: 400 18px/1.6 'Helvetica Neue', 'Helvetica', 'Arial', serif;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -14,10 +14,16 @@ body {
 
 .brake {
     max-width: 940px;
+    padding: 0 2rem;
+}
+
+h3 + p {
+    margin-top: 0;
 }
 
 @import '../imports/ui/pages/index/index.scss';
 @import '../imports/ui/components/header/header.scss';
 @import '../imports/ui/components/menu/menu.scss';
+@import '../imports/ui/components/menu-row/menu-row.scss';
 @import '../imports/ui/components/navigation/navigation.scss';
 @import '../imports/ui/components/order/order.scss';

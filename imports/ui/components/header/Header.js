@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import cls from 'classnames';
 
 import Accounts from '../../components/accounts';
-import Lang from '../../components/lang/Lang';
+import Lang from '../../components/lang/lang';
 
 const Header = () => (
     <header className="header">

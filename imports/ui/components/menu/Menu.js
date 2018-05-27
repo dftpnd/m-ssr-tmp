@@ -1,12 +1,15 @@
 import React from 'react';
 import cls from 'classnames';
 import debounce from 'lodash/debounce';
+// import indexOf from 'lodash/indexOf';
+// import { Meteor } from 'meteor/meteor';
 
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
 
-import Navigation from '../navigation/Navigation';
-import Order from '../order/Order';
+import Navigation from '../navigation/navigation';
+import Order from '../order/order';
+import MenuRow from '../menu-row/menu-row';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
@@ -23,7 +26,8 @@ class Menu extends React.Component {
             stateOrder: false,
             orderItem: {},
             activeIndex: 0,
-            snapType: false
+            snapType: false,
+            anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
     }
 
@@ -37,15 +41,13 @@ class Menu extends React.Component {
     cancel = () => this.setState({ stateOrder: false });
 
     setAnchor = activeIndex => {
-        const anchors = ['salads', 'snacks', 'pizza', 'pasta', 'hotDishes', 'soups'];
-        const activeAnchors = anchors[activeIndex];
-
-        window.location.hash = `#${activeAnchors}`;
+        window.location.hash = this.state.anchors[activeIndex];
     };
 
     startScroll = e => {
         const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
         this.setState({ activeIndex, scroll: 1 });
+        // console.log('activeIndex', activeIndex);
         this.setAnchor(activeIndex);
     };
 
@@ -70,10 +72,18 @@ class Menu extends React.Component {
         }
     };
 
+    getIndex = () => {
+        // if (Meteor.isClient && window.location.hash) {
+        //     return indexOf(this.state.anchors, window.location.hash);
+        // }
+
+        return this.state.activeIndex;
+    };
+
     render() {
         return (
             <section className="">
-                <Navigation activeIndex={this.state.activeIndex} />
+                <Navigation activeIndex={this.getIndex()} />
                 <div
                     className={cls(
                         'menu_list',
@@ -84,32 +94,21 @@ class Menu extends React.Component {
                 >
                     {menuStub.map((item, index) => (
                         <div
-                            className={cls('list', { list__active: index === this.state.activeIndex })}
                             key={index}
                             id={item.key}
+                            className={cls('list', {
+                                list__active: index === this.getIndex()
+                            })}
                         >
                             <div className={cls('list__box', 'brake')}>
-                                {item.list.map((subItem, i) => {
-                                    return (
-                                        <div className="text" key={i}>
-                                            <p>
-                                                {subItem.name}
-                                                <br />
-                                                <span className="text_span">{subItem.name_2}</span>
-                                            </p>
-                                            <p>
-                                                <b>{subItem.price}</b>
-                                                <br />
-                                                <span
-                                                    className="text_span_button"
-                                                    onClick={() => this.handlerOrder(subItem)}
-                                                >
-                                                    Заказать
-                                                </span>
-                                            </p>
-                                        </div>
-                                    );
-                                })}
+                                {item.list.map((subItem, i) => (
+                                    <MenuRow
+                                        key={i}
+                                        name={subItem.name}
+                                        name_2={subItem.name_2}
+                                        price={subItem.price}
+                                    />
+                                ))}
                             </div>
                         </div>
                     ))}

@@ -1,105 +1,116 @@
-body:not(.no-grid) {
-    margin: 0;
-}
+// body:not(.no-grid) {
+//     margin: 0;
+// }
 
-body:not(.no-grid):after {
-}
-// https://css-tricks.com/building-css-grid-overlay/
-// CSS  Result
-// EDIT ON
-:root {
-    --offset: 1.5rem;
-    --max_width: 72rem;
-    --columns: 6;
-    --gutter: 0.5rem;
-    --baseline: 3rem;
-    --baseline-shift: 2rem;
-    --color: hsla(204, 80%, 72%, 0.25);
-    --color-text: hsla(204, 80%, 72%, 1);
-    --media-query: 'base';
-}
+// body:not(.no-grid):after {
+// }
+// // https://css-tricks.com/building-css-grid-overlay/
+// // CSS  Result
+// // EDIT ON
+// :root {
+//     --offset: 1.5rem;
+//     --max_width: 72rem;
+//     --columns: 6;
+//     --gutter: 0.5rem;
+//     --baseline: 3rem;
+//     --baseline-shift: 2rem;
+//     --color: hsla(204, 80%, 72%, 0.25);
+//     --color-text: hsla(204, 80%, 72%, 1);
+//     --media-query: 'base';
+// }
 
-@media (min-width: 35em) {
-    :root {
-        --offset: 2rem;
-        --gutter: 0.75rem;
-        --color: hsla(286, 51%, 44%, 0.25);
-        --color-text: hsla(286, 51%, 44%, 1);
-        --media-query: 'small';
-    }
-}
+// @media (min-width: 35em) {
+//     :root {
+//         --offset: 2rem;
+//         --gutter: 0.75rem;
+//         --color: hsla(286, 51%, 44%, 0.25);
+//         --color-text: hsla(286, 51%, 44%, 1);
+//         --media-query: 'small';
+//     }
+// }
 
-@media (min-width: 48em) {
-    :root {
-        --offset: 2rem;
-        --columns: 12;
-        --max_width: 940px;
-        --gutter: 1rem;
-        --color: hsla(204, 80%, 72%, 0.25);
-        --color-text: hsla(204, 80%, 72%, 1);
-        --media-query: 'medium';
-    }
-}
+// @media (min-width: 48em) {
+//     :root {
+//         --offset: 2rem;
+//         --columns: 12;
+//         --max_width: 940px;
+//         --gutter: 1rem;
+//         --color: hsla(204, 80%, 72%, 0.25);
+//         --color-text: hsla(204, 80%, 72%, 1);
+//         --media-query: 'medium';
+//     }
+// }
 
-@media (min-width: 70em) {
-    :root {
-        --offset: 2rem;
-        --max_width: 940px;
-        --color: hsla(286, 51%, 44%, 0.25);
-        --color-text: hsla(286, 51%, 44%, 1);
-        --media-query: 'large';
-    }
-}
+// @media (min-width: 70em) {
+//     :root {
+//         --offset: 2rem;
+//         --max_width: 940px;
+//         --color: hsla(286, 51%, 44%, 0.25);
+//         --color-text: hsla(286, 51%, 44%, 1);
+//         --media-query: 'large';
+//     }
+// }
 
-/* Helper variables */
-:root {
-    --repeating-width: calc(100% / var(--columns));
-    --column-width: calc((100% / var(--columns)) - var(--gutter));
-    --background-width: calc(100% + var(--gutter));
-    --background-columns: repeating-linear-gradient(
-        to right,
-        var(--color),
-        var(--color) var(--column-width),
-        transparent var(--column-width),
-        transparent var(--repeating-width)
-    );
-    --background-baseline: repeating-linear-gradient(
-        to bottom,
-        var(--color),
-        var(--color) 1px,
-        transparent 1px,
-        transparent var(--baseline)
-    );
-}
+// /* Helper variables */
+// :root {
+//     --repeating-width: calc(100% / var(--columns));
+//     --column-width: calc((100% / var(--columns)) - var(--gutter));
+//     --background-width: calc(100% + var(--gutter));
+//     --background-columns: repeating-linear-gradient(
+//         to right,
+//         var(--color),
+//         var(--color) var(--column-width),
+//         transparent var(--column-width),
+//         transparent var(--repeating-width)
+//     );
+//     --background-baseline: repeating-linear-gradient(
+//         to bottom,
+//         var(--color),
+//         var(--color) 1px,
+//         transparent 1px,
+//         transparent var(--baseline)
+//     );
+// }
 
-html {
-    position: relative;
-}
+// html {
+//     position: relative;
+// }
 
-html::before {
-    position: fixed;
-    top: 0;
-    right: 0;
-    min-height: 100%;
-    bottom: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    width: calc(100% - (2 * var(--offset)));
-    max-width: var(--max_width);
-    min-height: 100vh;
-    content: '';
-    background-image: var(--background-columns);
-    background-size: var(--background-width) 100%;
-    background-position: 0 var(--baseline-shift);
-    z-index: 1000;
-    pointer-events: none;
-}
+// html::before {
+//     position: fixed;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     margin-right: auto;
+//     margin-left: auto;
+//     width: calc(100% - (2 * var(--offset)));
+//     max-width: var(--max_width);
+//     min-height: 100vh;
+//     content: '';
+//     background-image: var(--background-columns);
+//     background-size: var(--background-width) 100%;
+//     background-position: 0 var(--baseline-shift);
+//     z-index: 1000;
+//     pointer-events: none;
+// }
 
-html::after {
-    content: var(--media-query);
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    color: var(--color-text);
-}
+// html::after {
+//     content: var(--media-query);
+//     position: fixed;
+//     top: 1rem;
+//     left: 1rem;
+//     color: var(--color-text);
+// }
+
+// body::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     z-index: -1;
+//     background-image: linear-gradient(#ccd0ff 1px, transparent 1px);
+//     background-size: 100% 1rem;
+// }

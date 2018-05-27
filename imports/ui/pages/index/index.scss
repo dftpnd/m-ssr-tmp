@@ -6,15 +6,3 @@
 body {
     position: relative;
 }
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    background-image: linear-gradient(#ccd0ff 1px, transparent 1px);
-    background-size: 100% 1rem;
-}
