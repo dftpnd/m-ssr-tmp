@@ -19,19 +19,19 @@
     min-height: 100vh;
     display: flex;
     align-items: stretch;
-    overflow-x: scroll;
+    overflow-x: hidden;
     width: 100%;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(100%);
     -ms-overflow-style: -ms-autohiding-scrollbar;
 
-    // &--snap {
-    //     overflow-x: auto;
-    // }
+    &--snap {
+        overflow-x: auto;
+    }
 
-    // &::-webkit-scrollbar {
-    //     display: none;
-    // }
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &--scrolled .menu-row {
         display: flex !important;

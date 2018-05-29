@@ -8,12 +8,14 @@
         width: 100%;
         border-bottom: 1px solid black;
     }
-
+    &__baloon {
+        width: 2rem;
+        background: red;
+    }
     &__scroll {
         overflow-x: scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         display: flex;
-        // justify-content: space-between;
 
         &::-webkit-scrollbar {
             display: none;
@@ -41,24 +43,26 @@
 
 .headmenu {
     font-size: 20px;
-    border-bottom: 7px solid transparent;
+    display: flex;
     color: #000000;
     text-decoration: none;
-    margin-right: 2rem;
+    padding-right: 2rem;
 
     @media (max-width: 940px + (18px * 2)) {
+        padding-right: 1.5rem;
+
         &:first-child {
             margin-left: 2rem;
         }
-        // margin-right: 1rem;
-    }
-
-    &__active {
-        border-bottom: 7px solid black;
     }
 
     span {
         white-space: nowrap;
+        border-bottom: 7px solid transparent;
+    }
+
+    &__active span {
+        border-bottom: 7px solid black;
     }
 }
 

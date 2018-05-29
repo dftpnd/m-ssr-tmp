@@ -32,22 +32,24 @@ class Menu extends React.Component {
             anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
 
-        if (Meteor.isClient && window.location.hash) {
-            this.state.activeIndex = indexOf(this.state.anchors, window.location.hash);
+        if (Meteor.isClient) {
+            if (window.location.hash) {
+                this.state.activeIndex = indexOf(this.state.anchors, window.location.hash);
+            }
+
+            if ('scroll-snap-type' in document.body.style) {
+                this.state.snapType = true;
+            }
         }
     }
 
-    componentDidUpdate = () => {
-        // if ('scroll-snap-type' in document.body.style && !this.state.snapType) {
-        //     this.setState({ snapType: true });
-        // }
-    };
     handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
     cancel = () => this.setState({ stateOrder: false });
 
     setAnchor = activeIndex => {
-        window.location.hash = this.state.anchors[activeIndex];
+        const anchors = this.state.anchors;
+        window.location.hash = anchors[activeIndex] || anchors[0];
     };
 
     startScroll = () => {
@@ -73,7 +75,6 @@ class Menu extends React.Component {
 
         if (node) {
             node.addEventListener('scroll', e => this.startScroll(e));
-            // node.addEventListener('scroll', e => this.startScroll(e));
             node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
         }
     };
@@ -87,9 +88,10 @@ class Menu extends React.Component {
     };
 
     render() {
+        const activeIndex = this.getIndex();
         return (
             <section className="">
-                <Navigation activeIndex={this.getIndex()} location={this.props.location} />
+                <Navigation activeIndex={activeIndex} location={this.props.location} />
                 <div
                     className={cls(
                         'menu_list',

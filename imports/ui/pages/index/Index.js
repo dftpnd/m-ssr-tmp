@@ -8,9 +8,9 @@ const Index = () => (
     <div className="wrapper">
         <div className="index">
             <Helmet>
-                <title>Качо э Вино ресторан</title>
-                <meta name="description" content="Меню заказа Качо э Вино" />
-                <meta property="og:title" content="Качо э Вино" />
+                <title>Cacio e Vino</title>
+                <meta name="description" content="Меню Cacio e Vino" />
+                <meta property="og:title" content="Cacio e Vinoо" />
             </Helmet>
             <Header />
             <Menu location={this.location} />
