@@ -20,13 +20,7 @@ const MenuRow = props => {
             <div className="menu-row__action">
                 <p className="menu-row__text">{props.name_2}</p>
 
-                <span
-                    role="button"
-                    aria-pressed="true"
-                    tabIndex="0"
-                    className="menu-row__order"
-                    onClick={() => this.handlerOrder(props)}
-                >
+                <span className="menu-row__order" onClick={() => this.handlerOrder(props)}>
                     заказать
                 </span>
             </div>

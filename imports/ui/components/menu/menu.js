@@ -1,23 +1,19 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import { object } from 'prop-types';
 import cls from 'classnames';
 import debounce from 'lodash/debounce';
 import indexOf from 'lodash/indexOf';
-// import { Meteor } from 'meteor/meteor';
-
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
 
 import Navigation from '../navigation/navigation';
 import Order from '../order/order';
 import MenuRow from '../menu-row/menu-row';
-
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
 const T = i18n.createComponent();
-
-i18n.setLocale('ru-RU');
 
 class Menu extends React.Component {
     constructor(props) {
@@ -31,17 +27,24 @@ class Menu extends React.Component {
             activeIndex: 0,
             anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
+    }
 
-        if (Meteor.isClient) {
-            if (window.location.hash) {
-                this.state.activeIndex = indexOf(this.state.anchors, window.location.hash);
-            }
+    componentDidMount = () => {
+        window.addEventListener('hashchange', this.setActiveIndex, false);
+    };
 
-            if ('scroll-snap-type' in document.body.style) {
-                this.state.snapType = true;
+    componentWillUnmount() {
+        window.removeEventListener('hashchange', this.setActiveIndex, false);
+    }
+
+    setActiveIndex = () => {
+        if (window.location.hash) {
+            const activeIndex = indexOf(this.state.anchors, window.location.hash);
+            if (this.state.activeIndex !== activeIndex) {
+                this.setState({ activeIndex });
             }
         }
-    }
+    };
 
     handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
@@ -52,43 +55,35 @@ class Menu extends React.Component {
         window.location.hash = anchors[activeIndex] || anchors[0];
     };
 
-    startScroll = () => {
-        if (this.state.nodeWidth && !this.state.scroll) {
-            this.setState({ scroll: 1 });
+    startScroll = (e, nodeWidth) => {
+        if (nodeWidth && !this.state.scroll) {
+            const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
+            this.setState({ activeIndex, scroll: 1 });
         }
     };
 
-    endScroll = e => {
-        if (this.state.nodeWidth) {
-            const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-            const newState = { activeIndex, scroll: 0 };
-
-            this.setState(newState);
+    endScroll = (e, nodeWidth) => {
+        if (nodeWidth && this.state.scroll) {
+            const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
+            this.setState({ activeIndex, scroll: 0 });
             this.setAnchor(activeIndex);
         }
     };
 
     paneDidMount = node => {
+        if (!('scroll-snap-type' in document.body.style)) return;
+        this.setState({ snapType: true });
         const nodeWidth = Math.floor(node.getBoundingClientRect().width);
 
-        this.setState({ nodeWidth });
-
         if (node) {
-            node.addEventListener('scroll', e => this.startScroll(e));
-            node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
+            node.addEventListener('scroll', e => this.startScroll(e, nodeWidth));
+            node.addEventListener('scroll', debounce(e => this.endScroll(e, nodeWidth), 100));
         }
-    };
-
-    getIndex = () => {
-        if (Meteor.isClient && window.location.hash && this.state.activeIndex === 0) {
-            return indexOf(this.state.anchors, window.location.hash);
-        }
-
-        return this.state.activeIndex;
     };
 
     render() {
-        const activeIndex = this.getIndex();
+        const activeIndex = this.state.activeIndex;
+
         return (
             <section className="">
                 <Navigation activeIndex={activeIndex} location={this.props.location} />
@@ -105,7 +100,7 @@ class Menu extends React.Component {
                             key={index}
                             id={item.key}
                             className={cls('list', {
-                                list__active: index === this.getIndex()
+                                list__active: index === activeIndex
                             })}
                         >
                             <div className={cls('list__box', 'brake')}>
@@ -126,6 +121,10 @@ class Menu extends React.Component {
         );
     }
 }
+
+Menu.propTypes = {
+    location: object
+};
 
 // const mapStateToProps = state => ({ menu: state.menu });
 const mapStateToProps = () => ({});

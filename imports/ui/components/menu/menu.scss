@@ -22,9 +22,10 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
 
     @media (min-width: 888px) {
-        &--snap {
-            overflow-x: auto;
-        }
+    }
+
+    &--snap {
+        overflow-x: auto;
     }
 
     &::-webkit-scrollbar {
