@@ -28,6 +28,7 @@ class Menu extends React.Component {
             stateOrder: false,
             orderItem: {},
             snapType: false,
+            activeIndex: 0,
             anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
 
@@ -78,10 +79,6 @@ class Menu extends React.Component {
     };
 
     getIndex = () => {
-        if (Meteor.isServer) {
-            return null;
-        }
-
         if (Meteor.isClient && window.location.hash && this.state.activeIndex === 0) {
             return indexOf(this.state.anchors, window.location.hash);
         }
