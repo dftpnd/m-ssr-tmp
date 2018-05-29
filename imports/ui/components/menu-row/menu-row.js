@@ -12,11 +12,13 @@ const MenuRow = props => {
     return (
         <div className="menu-row" key={props.key} role="main">
             <div className="menu-row__content">
-                <h3 className="menu-row__title">{props.name}</h3>
-                <p className="menu-row__text">{props.name_2}</p>
+                <h3 className="menu-row__title">
+                    <span className="menu-row__wraptitle">{props.name}</span>
+                </h3>
+                <div className="menu-row__price">{props.price}&ensp;₽</div>
             </div>
             <div className="menu-row__action">
-                <div className="menu-row__price">{props.price}&ensp;₽</div>
+                <p className="menu-row__text">{props.name_2}</p>
 
                 <span
                     role="button"
@@ -25,7 +27,7 @@ const MenuRow = props => {
                     className="menu-row__order"
                     onClick={() => this.handlerOrder(props)}
                 >
-                    Заказать
+                    заказать
                 </span>
             </div>
         </div>
