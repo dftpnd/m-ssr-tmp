@@ -13,6 +13,7 @@
         overflow-x: scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         display: flex;
+        // justify-content: space-between;
 
         &::-webkit-scrollbar {
             display: none;
@@ -24,23 +25,33 @@
             }
         }
     }
-}
 
-.nav__menu {
-    margin: 0 auto;
-    position: relative;
-    bottom: -2.3rem;
+    &__menu {
+        margin: 0 auto;
+        position: relative;
+        bottom: -2.3rem;
+        padding: 0;
 
-    a {
-        text-decoration: none;
+        @media (max-width: 940px + (18px * 2)) {
+            max-width: none;
+            // margin-right: 1rem;
+        }
     }
 }
 
 .headmenu {
     font-size: 20px;
     border-bottom: 7px solid transparent;
+    color: #000000;
+    text-decoration: none;
     margin-right: 2rem;
-    color: #000;
+
+    @media (max-width: 940px + (18px * 2)) {
+        &:first-child {
+            margin-left: 2rem;
+        }
+        // margin-right: 1rem;
+    }
 
     &__active {
         border-bottom: 7px solid black;

@@ -1,7 +1,8 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import cls from 'classnames';
 import debounce from 'lodash/debounce';
-// import indexOf from 'lodash/indexOf';
+import indexOf from 'lodash/indexOf';
 // import { Meteor } from 'meteor/meteor';
 
 import { connect } from 'react-redux';
@@ -21,20 +22,24 @@ i18n.setLocale('ru-RU');
 class Menu extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             nodeWidth: null,
             stateOrder: false,
             orderItem: {},
-            activeIndex: 0,
             snapType: false,
             anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
+
+        if (Meteor.isClient && window.location.hash) {
+            this.state.activeIndex = indexOf(this.state.anchors, window.location.hash);
+        }
     }
 
     componentDidUpdate = () => {
-        if ('scroll-snap-type' in document.body.style && !this.state.snapType) {
-            this.setState({ snapType: true });
-        }
+        // if ('scroll-snap-type' in document.body.style && !this.state.snapType) {
+        //     this.setState({ snapType: true });
+        // }
     };
     handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
 
@@ -44,11 +49,10 @@ class Menu extends React.Component {
         window.location.hash = this.state.anchors[activeIndex];
     };
 
-    startScroll = e => {
-        const activeIndex = Math.round(e.srcElement.scrollLeft / this.state.nodeWidth);
-        this.setState({ activeIndex, scroll: 1 });
-        // console.log('activeIndex', activeIndex);
-        this.setAnchor(activeIndex);
+    startScroll = () => {
+        if (this.state.nodeWidth && !this.state.scroll) {
+            this.setState({ scroll: 1 });
+        }
     };
 
     endScroll = e => {
@@ -68,14 +72,19 @@ class Menu extends React.Component {
 
         if (node) {
             node.addEventListener('scroll', e => this.startScroll(e));
+            // node.addEventListener('scroll', e => this.startScroll(e));
             node.addEventListener('scroll', debounce(e => this.endScroll(e), 100));
         }
     };
 
     getIndex = () => {
-        // if (Meteor.isClient && window.location.hash) {
-        //     return indexOf(this.state.anchors, window.location.hash);
-        // }
+        if (Meteor.isServer) {
+            return null;
+        }
+
+        if (Meteor.isClient && window.location.hash && this.state.activeIndex === 0) {
+            return indexOf(this.state.anchors, window.location.hash);
+        }
 
         return this.state.activeIndex;
     };
@@ -83,7 +92,7 @@ class Menu extends React.Component {
     render() {
         return (
             <section className="">
-                <Navigation activeIndex={this.getIndex()} />
+                <Navigation activeIndex={this.getIndex()} location={this.props.location} />
                 <div
                     className={cls(
                         'menu_list',

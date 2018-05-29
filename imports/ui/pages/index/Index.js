@@ -8,12 +8,12 @@ const Index = () => (
     <div className="wrapper">
         <div className="index">
             <Helmet>
-                <title>Index</title>
-                <meta name="description" content="This is homepage. Just Helmet SSR demo" />
-                <meta property="og:title" content="This is homepage. Just Helmet SSR demo for OG" />
+                <title>Качо э Вино ресторан</title>
+                <meta name="description" content="Меню заказа Качо э Вино" />
+                <meta property="og:title" content="Качо э Вино" />
             </Helmet>
             <Header />
-            <Menu />
+            <Menu location={this.location} />
         </div>
     </div>
 );
