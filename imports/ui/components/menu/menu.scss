@@ -9,10 +9,6 @@
 .menu {
     display: flex;
     margin-left: -2rem;
-
-    // &::-webkit-scrollbar {
-    //     display: none;
-    // }
 }
 
 .menu_list {
@@ -25,8 +21,10 @@
     scroll-snap-points-x: repeat(100%);
     -ms-overflow-style: -ms-autohiding-scrollbar;
 
-    &--snap {
-        overflow-x: auto;
+    @media (max-width: 888px) {
+        &--snap {
+            overflow-x: auto;
+        }
     }
 
     &::-webkit-scrollbar {
@@ -46,12 +44,12 @@
         border-right: none;
         scroll-snap-align: start;
 
-        &:not(.list__active) .menu-row:nth-child(n + 4) {
-            display: none;
-        }
-
         &:target .menu-row {
             display: flex !important;
+        }
+
+        &:not(.list__active) .menu-row:nth-child(n + 4) {
+            display: none;
         }
 
         &__box {
@@ -59,8 +57,4 @@
             margin: 0 auto;
         }
     }
-
-    // .list:target .menu-row {
-    //     display: none;
-    // }
 }
