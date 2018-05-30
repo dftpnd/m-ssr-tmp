@@ -11,6 +11,7 @@ const Index = () => (
                 <title>Cacio e Vino</title>
                 <meta name="description" content="Меню Cacio e Vino" />
                 <meta property="og:title" content="Cacio e Vinoо" />
+                <meta name="robots" content="noindex" />
             </Helmet>
             <Header />
             <Menu location={this.location} />
