@@ -1,15 +1,32 @@
 .header__box {
     margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .header_wrapper {
-    width: 100%;
-    padding: 3rem 0 2.5rem;
+    width: 64%;
+    padding: 0 0 2.5rem;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: space-between;
+    // border: 1px solid;
+    // align-items: center;
 }
 
-.header_number {
-    margin-left: 35%;
+.header__info {
+    ul {
+        display: flex;
+        list-style: none;
+        li:first-child {
+            margin-right: 0.5rem;
+        }
+    }
 }
+
+.header_icon {
+    margin-top: 1rem;
+}
+
+// .header_number {
+//     margin-left: 35%;
+// }

@@ -9,15 +9,17 @@ const Header = () => (
     <header className="header">
         <div className={cls('header__box', 'brake')}>
             <div className="header_wrapper">
-                <div id="header_icon">
-                    <span>icon</span>
+                <div className="header_icon">
+                    <img src="cacio_icon_2.jpg" alt="Cacio_e_vino" />
                 </div>
-                <a href="#" className="header_number">
-                    +7 912 199 23 39
-                </a>
+                <div className="header__info">
+                    <Lang />
+                    <a href="#" className="header_number">
+                        +7 912 199 23 39
+                    </a>
+                </div>
+                {/* <Accounts /> */}
             </div>
-            <Accounts />
-            <Lang />
         </div>
     </header>
 );
