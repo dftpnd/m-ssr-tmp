@@ -1,5 +1,16 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, GET_ALL_TODO, GET_MENU, FIND_ACCOUNT } from './actions';
+import filter from 'lodash/filter';
+
+import {
+    ADD_TODO,
+    REMOVE_TODO,
+    EDIT_TODO,
+    GET_ALL_TODO,
+    GET_MENU,
+    FIND_ACCOUNT,
+    ADD_ORDER,
+    ADD_ORDER_REMOVE
+} from './actions';
 
 const remove = (state, action) => {
     const elemToRemoveArray = state.slice().filter(item => item._id === action._id);
@@ -54,10 +65,29 @@ function accounts(state = [], action) {
     }
 }
 
+function orders(state = [], action) {
+    const METHODS = {
+        [ADD_ORDER]: () => [...state, action.data],
+        [ADD_ORDER_REMOVE]: () => {
+            let removeOnlyOne = false;
+            return filter(state, item => {
+                if (item.dish === action.data.dish && !removeOnlyOne) {
+                    removeOnlyOne = true;
+                    return false;
+                }
+                return true;
+            });
+        }
+    };
+
+    return (Object.prototype.hasOwnProperty.call(METHODS, action.type) && METHODS[action.type]()) || state;
+}
+
 const mainReducer = combineReducers({
     todos,
     menu,
-    accounts
+    accounts,
+    orders
 });
 
 export default mainReducer;

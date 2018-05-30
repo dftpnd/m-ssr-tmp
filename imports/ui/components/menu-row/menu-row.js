@@ -1,41 +1,65 @@
 import React from 'react';
-import { number, string } from 'prop-types';
-// import cls from 'classnames';
-// import debounce from 'lodash/debounce';
-// import indexOf from 'lodash/indexOf';
+import { string, func, array } from 'prop-types';
 import { connect } from 'react-redux';
-// import i18n from 'meteor/universe:i18n';
-import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
-// const T = i18n.createComponent();
+import { callAddOrder, callAddOrderRemove } from '../../../api/redux/async-actions';
 
-const MenuRow = props => {
+const MenuRow = ({ dish, name, price, name_2, orders, handlerOrder, handlerOrderRemove }) => {
+    const length = orders.filter(items => items.dish === dish).length;
+    const isEmpty = !length;
+    const format = () => {
+        if (isEmpty) return price;
+        return price * length;
+    };
     return (
-        <div className="menu-row" key={props.key} role="main">
+        <div className="menu-row" role="main">
             <div className="menu-row__content">
                 <h3 className="menu-row__title">
-                    <span className="menu-row__wraptitle">{props.name}</span>
+                    <span className="menu-row__wraptitle">{name}</span>
                 </h3>
-                <div className="menu-row__price">{props.price}&ensp;₽</div>
+                <div className="menu-row__price">
+                    {!isEmpty && <span>{length} × </span>}
+                    {format()}&ensp;₽
+                </div>
             </div>
             <div className="menu-row__action">
-                <p className="menu-row__text">{props.name_2}</p>
-
-                <span className="menu-row__order" onClick={() => this.handlerOrder(props)}>
-                    заказать
-                </span>
+                <p className="menu-row__text">{name_2}</p>
+                <div>
+                    {isEmpty && (
+                        <span className="menu-row__order" onClick={() => handlerOrder({ dish, name, price, name_2 })}>
+                            заказать
+                        </span>
+                    )}
+                    {!isEmpty && (
+                        <div>
+                            <span className="menu-row__order" onClick={() => handlerOrderRemove({ dish })}>
+                                удалить
+                            </span>
+                            <span
+                                className="menu-row__order"
+                                onClick={() => handlerOrder({ dish, name, price, name_2 })}
+                            >
+                                добавить
+                            </span>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
 };
 
 MenuRow.propTypes = {
-    key: number,
+    dish: string.isRequired,
     name: string.isRequired,
     name_2: string,
-    price: string.isRequired
+    price: string.isRequired,
+    handlerOrder: func.isRequired,
+    handlerOrderRemove: func.isRequired,
+    orders: array.isRequired
 };
 
-// const mapStateToProps = state => ({ menu: state.menu });
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({ orders: state.orders });
 
-export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(MenuRow);
+export default connect(mapStateToProps, { handlerOrder: callAddOrder, handlerOrderRemove: callAddOrderRemove })(
+    MenuRow
+);

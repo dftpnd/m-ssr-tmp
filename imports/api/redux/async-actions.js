@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { addTodo, getAllTodo, removeTodo, editTodo, getMenu, findAccounts } from './actions';
+import { addTodo, getAllTodo, removeTodo, editTodo, getMenu, findAccounts, addOrder, addOrderRemove } from './actions';
 import { todosGetAll, todosAdd, todosEdit, todosRemove } from '../todos/methods';
 import menuGetAll from '../menu/methods';
 import { accountsFind } from '../accounts/methods';
@@ -68,4 +68,16 @@ export function callFindAccount(data) {
                 dispatch(findAccounts(result));
             }
         });
+}
+
+export function callAddOrder(order) {
+    return dispatch => {
+        dispatch(addOrder(order));
+    };
+}
+
+export function callAddOrderRemove(order) {
+    return dispatch => {
+        dispatch(addOrderRemove(order));
+    };
 }

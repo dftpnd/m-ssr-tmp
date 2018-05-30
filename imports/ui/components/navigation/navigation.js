@@ -1,10 +1,10 @@
-import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { number } from 'prop-types';
+import React from 'react';
+import { array, number } from 'prop-types';
 import cls from 'classnames';
-
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
+import indexOf from 'lodash/indexOf';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from '../menu/menu-mock';
@@ -55,13 +55,15 @@ class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
-    activeIndex: number
+    activeIndex: number,
+    anchors: array
+    // orders: array.isRequired
 };
 
 Navigation.defaultProps = {
     activeIndex: 0
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({ orders: state.orders });
 
 export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Navigation);

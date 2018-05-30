@@ -15,7 +15,8 @@
     min-height: 100vh;
     display: flex;
     align-items: stretch;
-    overflow-x: hidden;
+    // overflow-x: hidden;
+    overflow-x: auto;
     width: 100%;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(100%);

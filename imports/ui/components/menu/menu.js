@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { object } from 'prop-types';
+import { object, array } from 'prop-types';
 import cls from 'classnames';
 import debounce from 'lodash/debounce';
 import indexOf from 'lodash/indexOf';
@@ -46,8 +46,6 @@ class Menu extends React.Component {
         }
     };
 
-    handlerOrder = orderItem => this.setState({ stateOrder: true, orderItem });
-
     cancel = () => this.setState({ stateOrder: false });
 
     setAnchor = activeIndex => {
@@ -71,7 +69,7 @@ class Menu extends React.Component {
     };
 
     paneDidMount = node => {
-        if (!('scroll-snap-type' in document.body.style)) return;
+        // if (!('scroll-snap-type' in document.body.style)) return;
         this.setState({ snapType: true });
         const nodeWidth = Math.floor(node.getBoundingClientRect().width);
 
@@ -80,13 +78,17 @@ class Menu extends React.Component {
             node.addEventListener('scroll', debounce(e => this.endScroll(e, nodeWidth), 100));
         }
     };
+    getIndex = () => {
+        if (Meteor.isClient && window.location.hash && this.state.activeIndex === 0) {
+            return indexOf(this.state.anchors, window.location.hash);
+        }
 
+        return this.state.activeIndex;
+    };
     render() {
-        const activeIndex = this.state.activeIndex;
-
         return (
             <section className="">
-                <Navigation activeIndex={activeIndex} location={this.props.location} />
+                <Navigation activeIndex={this.getIndex()} location={this.props.location} anchors={this.state.anchors} />
                 <div
                     className={cls(
                         'menu_list',
@@ -100,13 +102,14 @@ class Menu extends React.Component {
                             key={index}
                             id={item.key}
                             className={cls('list', {
-                                list__active: index === activeIndex
+                                list__active: index === this.state.activeIndex
                             })}
                         >
                             <div className={cls('list__box', 'brake')}>
                                 {item.list.map((subItem, i) => (
                                     <MenuRow
                                         key={i}
+                                        dish={subItem.dish}
                                         name={subItem.name}
                                         name_2={subItem.name_2}
                                         price={subItem.price}
@@ -116,17 +119,17 @@ class Menu extends React.Component {
                         </div>
                     ))}
                 </div>
-                {this.state.stateOrder && <Order />}
+                {!!this.props.orders.length && <Order />}
             </section>
         );
     }
 }
 
 Menu.propTypes = {
-    location: object
+    location: object,
+    orders: array.isRequired
 };
 
-// const mapStateToProps = state => ({ menu: state.menu });
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({ orders: state.orders });
 
 export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Menu);

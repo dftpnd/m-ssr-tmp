@@ -8,6 +8,8 @@ export const EDIT_TODO = 'EDIT_TODO';
 export const GET_ALL_TODO = 'GET_ALL_TODO';
 export const GET_MENU = 'GET_MENU';
 export const FIND_ACCOUNT = 'FIND_ACCOUNT';
+export const ADD_ORDER = 'ADD_ORDER';
+export const ADD_ORDER_REMOVE = 'ADD_ORDER_REMOVE';
 
 /*
 * action creators
@@ -51,6 +53,20 @@ export function getMenu(data) {
 export function findAccounts(data) {
     return {
         type: FIND_ACCOUNT,
+        data
+    };
+}
+
+export function addOrder(data) {
+    return {
+        type: ADD_ORDER,
+        data
+    };
+}
+
+export function addOrderRemove(data) {
+    return {
+        type: ADD_ORDER_REMOVE,
         data
     };
 }

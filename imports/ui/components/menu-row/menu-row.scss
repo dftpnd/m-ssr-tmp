@@ -79,5 +79,13 @@
         cursor: pointer;
         border-bottom: 1px solid rgba(0, 0, 0, 0.4);
         letter-spacing: 1px;
+
+        &::selection {
+            background: none;
+        }
+    }
+
+    &__order:nth-child(n + 2) {
+        margin-left: 0.5rem;
     }
 }
