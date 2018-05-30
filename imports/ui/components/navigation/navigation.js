@@ -1,10 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { array, number } from 'prop-types';
+import { number } from 'prop-types';
 import cls from 'classnames';
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
-import indexOf from 'lodash/indexOf';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from '../menu/menu-mock';
@@ -37,14 +36,15 @@ class Navigation extends React.Component {
                 <section className={cls('nav__menu', 'brake')}>
                     <div className="nav__scroll">
                         {menuStub.map((item, index) => (
-                            <a
-                                href={`#${item.key}`}
-                                ref={this.links[index]}
-                                className={cls('headmenu', active(index, this.props.activeIndex))}
+                            <div
                                 key={index}
+                                className={cls('headmenu', active(index, this.props.activeIndex))}
+                                ref={this.links[index]}
                             >
-                                <T>{item.title}</T>
-                            </a>
+                                <a href={`#${item.key}`}>
+                                    <T>{item.title}</T>
+                                </a>
+                            </div>
                         ))}
                     </div>
                 </section>
@@ -55,8 +55,7 @@ class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
-    activeIndex: number,
-    anchors: array
+    activeIndex: number
     // orders: array.isRequired
 };
 

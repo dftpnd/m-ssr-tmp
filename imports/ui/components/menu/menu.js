@@ -79,7 +79,7 @@ class Menu extends React.Component {
         }
     };
     getIndex = () => {
-        if (Meteor.isClient && window.location.hash && this.state.activeIndex === 0) {
+        if (Meteor.isClient && window.location.hash) {
             return indexOf(this.state.anchors, window.location.hash);
         }
 

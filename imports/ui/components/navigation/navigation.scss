@@ -4,14 +4,16 @@
 
     &_scroll_border {
         position: absolute;
-        top: 77px;
+        top: 76px;
         width: 100%;
         border-bottom: 1px solid black;
     }
+
     &__baloon {
         width: 2rem;
         background: red;
     }
+
     &__scroll {
         overflow-x: scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -42,11 +44,24 @@
 }
 
 .headmenu {
-    font-size: 20px;
     display: flex;
-    color: #000000;
-    text-decoration: none;
     padding-right: 2rem;
+    white-space: nowrap;
+
+    &__active a {
+        border-bottom: 7px solid black !important;
+    }
+
+    a {
+        font-size: 20px;
+        color: #000000;
+        text-decoration: none;
+        border-bottom: 7px solid transparent;
+    }
+
+    a:hover {
+        color: lighten(black, 35);
+    }
 
     @media (max-width: 940px + (18px * 2)) {
         padding-right: 1.5rem;
@@ -54,15 +69,6 @@
         &:first-child {
             margin-left: 2rem;
         }
-    }
-
-    span {
-        white-space: nowrap;
-        border-bottom: 7px solid transparent;
-    }
-
-    &__active span {
-        border-bottom: 7px solid black;
     }
 }
 
