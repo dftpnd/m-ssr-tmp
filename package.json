@@ -62,8 +62,13 @@
             "sourceType": "module"
         },
         "parser": "babel-eslint",
-        "plugins": ["meteor"],
-        "extends": ["airbnb", "plugin:meteor/recommended"],
+        "plugins": [
+            "meteor"
+        ],
+        "extends": [
+            "airbnb",
+            "plugin:meteor/recommended"
+        ],
         "env": {
             "browser": true,
             "node": true,
@@ -86,17 +91,23 @@
                     "templateInstanceParamName": "instance"
                 }
             ],
-            "meteor/template-names": [0],
+            "meteor/template-names": [
+                0
+            ],
             "import/no-unresolved": [
                 2,
                 {
-                    "ignore": ["^meteor/"]
+                    "ignore": [
+                        "^meteor/"
+                    ]
                 }
             ],
             "no-underscore-dangle": [
                 "error",
                 {
-                    "allow": ["_id"]
+                    "allow": [
+                        "_id"
+                    ]
                 }
             ],
             "no-unused-vars": [
@@ -111,7 +122,9 @@
         "plugins": {
             "postcss-easy-import": {},
             "autoprefixer": {
-                "browsers": ["last 1 versions"]
+                "browsers": [
+                    "last 1 versions"
+                ]
             }
         }
     }
