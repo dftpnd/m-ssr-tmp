@@ -15,8 +15,9 @@ class OrderForm extends React.Component {
         super(props);
         this.state = {
             phone: '',
-            delivery: '',
-            pay: ''
+            address: '',
+            delivery: 'pickup',
+            pay: 'checkout'
         };
     }
 
@@ -36,6 +37,15 @@ class OrderForm extends React.Component {
         console.log('state', this.state);
     };
 
+    handleAddress = event => {
+        this.setState({ address: event.target.value });
+    };
+
+    checkoutLabelText = () => {
+        if (this.state.delivery === 'courier') return 'Курьеру';
+
+        return 'На кассе';
+    };
     render() {
         return (
             <form className="order-form">
@@ -57,45 +67,67 @@ class OrderForm extends React.Component {
                 <fieldset>
                     <legend>Доставка</legend>
                     <div className="order-form__radio">
-                        <input
-                            onChange={this.handleDelivery}
-                            checked={this.state.delivery === 'courier'}
-                            value="courier"
-                            id="courier"
-                            type="radio"
-                            name="delivery"
-                            tabIndex="0"
-                        />
-                        <label htmlFor="courier" className="order-form__label">
-                            <span className="form__title">Курьером</span>
-                            <div className="order-form__hint">Описан способ доставки курьером</div>
-                        </label>
-                    </div>
-                    <div className="order-form__radio">
-                        <input
-                            onChange={this.handleDelivery}
-                            checked={this.state.delivery === 'pickup'}
-                            value="pickup"
-                            id="pickup"
-                            type="radio"
-                            name="delivery"
-                            tabIndex="0"
-                        />
+                        <div className="order-form__box">
+                            <input
+                                onChange={this.handleDelivery}
+                                checked={this.state.delivery === 'pickup'}
+                                value="pickup"
+                                id="pickup"
+                                type="radio"
+                                name="delivery"
+                                tabIndex="0"
+                            />
+                        </div>
                         <label htmlFor="pickup" className="order-form__label">
                             <span className="order-form__title">Заберу сам</span>
                             <div className="order-form__hint">г.Иннополис спортивная 100-77</div>
                         </label>
                     </div>
                     <div className="order-form__radio">
-                        <input
-                            onChange={this.handleDelivery}
-                            checked={this.state.delivery === 'book-it'}
-                            value="book-it"
-                            id="book-it"
-                            type="radio"
-                            name="delivery"
-                            tabIndex="0"
-                        />
+                        <div className="order-form__box">
+                            <input
+                                onChange={this.handleDelivery}
+                                checked={this.state.delivery === 'courier'}
+                                value="courier"
+                                id="courier"
+                                type="radio"
+                                name="delivery"
+                                tabIndex="0"
+                            />
+                        </div>
+                        <label htmlFor="courier" className="order-form__label">
+                            <span className="form__title">Курьером</span>
+                            <div className="order-form__hint">Описан способ доставки курьером</div>
+                        </label>
+                    </div>
+
+                    {this.state.delivery === 'courier' && (
+                        <div className="order-form__address">
+                            <label htmlFor="address" className="order-form__label">
+                                Адрес доставки
+                            </label>
+
+                            <input
+                                onChange={this.handleAddress}
+                                value={this.state.address}
+                                id="address"
+                                name="address"
+                            />
+                        </div>
+                    )}
+
+                    <div className="order-form__radio">
+                        <div className="order-form__box">
+                            <input
+                                onChange={this.handleDelivery}
+                                checked={this.state.delivery === 'book-it'}
+                                value="book-it"
+                                id="book-it"
+                                type="radio"
+                                name="delivery"
+                                tabIndex="0"
+                            />
+                        </div>
                         <label htmlFor="book-it" className="order-form__label">
                             <span className="order-form__title">Забронировать столик</span>
                             <div className="order-form__hint">Перезвоним на ваш номер, уточним все детали</div>
@@ -105,45 +137,35 @@ class OrderForm extends React.Component {
                 <fieldset>
                     <legend>Оплата</legend>
                     <div className="order-form__radio">
-                        <input
-                            onChange={this.handlePay}
-                            checked={this.state.pay === 'checkout'}
-                            value="checkout"
-                            id="checkout"
-                            type="radio"
-                            name="pay"
-                            tabIndex="0"
-                        />
+                        <div className="order-form__box">
+                            <input
+                                onChange={this.handlePay}
+                                checked={this.state.pay === 'checkout'}
+                                value="checkout"
+                                id="checkout"
+                                type="radio"
+                                name="pay"
+                                tabIndex="0"
+                            />
+                        </div>
                         <label htmlFor="checkout" className="order-form__label">
-                            <span className="order-form__title">На кассе</span>
+                            <span className="order-form__title">{this.checkoutLabelText()}</span>
                             <div className="order-form__hint">Наличными / картой / перевод сбербанк</div>
                         </label>
                     </div>
+
                     <div className="order-form__radio">
-                        <input
-                            onChange={this.handlePay}
-                            checked={this.state.pay === 'pay-courier'}
-                            value="pay-courier"
-                            id="pay-courier"
-                            type="radio"
-                            name="pay"
-                            tabIndex="0"
-                        />
-                        <label htmlFor="pay-courier" className="order-form__label">
-                            <span className="order-form__title">Курьеру</span>
-                            <div className="order-form__hint">Наличными / картой</div>
-                        </label>
-                    </div>
-                    <div className="order-form__radio">
-                        <input
-                            onChange={this.handlePay}
-                            checked={this.state.pay === 'online'}
-                            value="online"
-                            id="online"
-                            type="radio"
-                            name="pay"
-                            tabIndex="0"
-                        />
+                        <div className="order-form__box">
+                            <input
+                                onChange={this.handlePay}
+                                checked={this.state.pay === 'online'}
+                                value="online"
+                                id="online"
+                                type="radio"
+                                name="pay"
+                                tabIndex="0"
+                            />
+                        </div>
                         <label htmlFor="online" className="order-form__label">
                             <span className="order-form__title">Онлайн оплата</span>
                             <div className="order-form__hint">Яндекс касса</div>
