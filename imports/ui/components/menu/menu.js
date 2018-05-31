@@ -25,7 +25,6 @@ class Menu extends React.Component {
             orderItem: {},
             snapType: false,
             activeIndex: 0,
-            click: false,
             anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
     }
@@ -42,7 +41,7 @@ class Menu extends React.Component {
         if (window.location.hash) {
             const activeIndex = indexOf(this.state.anchors, window.location.hash);
             if (this.state.activeIndex !== activeIndex) {
-                this.setState({ activeIndex, click: true });
+                this.setState({ activeIndex });
             }
         }
     };
@@ -50,14 +49,12 @@ class Menu extends React.Component {
     cancel = () => this.setState({ stateOrder: false });
 
     setAnchor = activeIndex => {
-        if (!this.state.click) {
-            const anchors = this.state.anchors;
-            window.location.hash = anchors[activeIndex] || anchors[0];
-        }
+        const anchors = this.state.anchors;
+        window.location.hash = anchors[activeIndex] || anchors[0];
     };
 
     startScroll = (e, nodeWidth) => {
-        if (!this.state.click && nodeWidth && !this.state.scroll) {
+        if (nodeWidth && !this.state.scroll) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
             this.setState({ activeIndex, scroll: 1 });
         }
@@ -66,7 +63,7 @@ class Menu extends React.Component {
     endScroll = (e, nodeWidth) => {
         if (nodeWidth && this.state.scroll) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
-            this.setState({ activeIndex, scroll: 0, click: false });
+            this.setState({ activeIndex, scroll: 0 });
             this.setAnchor(activeIndex);
         }
     };
@@ -82,7 +79,7 @@ class Menu extends React.Component {
         }
     };
     getIndex = () => {
-        if (Meteor.isClient && window.location.hash) {
+        if (Meteor.isClient && window.location.hash && !this.state.snapType) {
             return indexOf(this.state.anchors, window.location.hash);
         }
 
