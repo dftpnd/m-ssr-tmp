@@ -21,10 +21,10 @@
     scroll-snap-points-x: repeat(100%);
     -ms-overflow-style: -ms-autohiding-scrollbar;
     position: relative;
+    will-change: scroll-position;
 
     &--snap {
         overflow-x: auto;
-        will-change: scroll-position;
     }
 
     &::-webkit-scrollbar {
