@@ -1,12 +1,13 @@
 .nav {
     margin: 0 auto;
     position: relative;
+    z-index: 99;
 
     &_scroll_border {
         position: absolute;
-        top: 76px;
+        top: 72px;
         width: 100%;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--text-color-active);
     }
 
     &__baloon {
@@ -49,18 +50,20 @@
     white-space: nowrap;
 
     &__active a {
-        border-bottom: 7px solid black !important;
+        border-bottom: 7px solid var(--text-color-active) !important;
     }
 
     a {
-        font-size: 20px;
-        color: #000000;
+        font-size: 18px;
+        color: var(--text-color);
         text-decoration: none;
         border-bottom: 7px solid transparent;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     a:hover {
-        color: lighten(black, 35);
+        color: var(--text-color-active);
     }
 
     @media (max-width: 940px + (18px * 2)) {
@@ -70,28 +73,4 @@
             margin-left: 2rem;
         }
     }
-}
-
-.pn-Advancer {
-    appearance: none;
-    background: transparent;
-    padding: 0;
-    border: 0;
-    position: absolute;
-    top: 30px;
-    transition: opacity 0.3s;
-    opacity: 0;
-}
-
-.pn-Advancer_Left {
-    left: 0.5rem;
-}
-
-.pn-Advancer_Right {
-    right: 0.5rem;
-}
-
-.pn-Advancer_Icon {
-    width: 1rem;
-    fill: lighten(#000000, 90);
 }

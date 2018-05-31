@@ -25,6 +25,7 @@ class Menu extends React.Component {
             orderItem: {},
             snapType: false,
             activeIndex: 0,
+            click: false,
             anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
         };
     }
@@ -41,7 +42,7 @@ class Menu extends React.Component {
         if (window.location.hash) {
             const activeIndex = indexOf(this.state.anchors, window.location.hash);
             if (this.state.activeIndex !== activeIndex) {
-                this.setState({ activeIndex });
+                this.setState({ activeIndex, click: true });
             }
         }
     };
@@ -49,12 +50,14 @@ class Menu extends React.Component {
     cancel = () => this.setState({ stateOrder: false });
 
     setAnchor = activeIndex => {
-        const anchors = this.state.anchors;
-        window.location.hash = anchors[activeIndex] || anchors[0];
+        if (!this.state.click) {
+            const anchors = this.state.anchors;
+            window.location.hash = anchors[activeIndex] || anchors[0];
+        }
     };
 
     startScroll = (e, nodeWidth) => {
-        if (nodeWidth && !this.state.scroll) {
+        if (!this.state.click && nodeWidth && !this.state.scroll) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
             this.setState({ activeIndex, scroll: 1 });
         }
@@ -63,13 +66,13 @@ class Menu extends React.Component {
     endScroll = (e, nodeWidth) => {
         if (nodeWidth && this.state.scroll) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
-            this.setState({ activeIndex, scroll: 0 });
+            this.setState({ activeIndex, scroll: 0, click: false });
             this.setAnchor(activeIndex);
         }
     };
 
     paneDidMount = node => {
-        // if (!('scroll-snap-type' in document.body.style)) return;
+        if (!('scroll-snap-type' in document.body.style)) return;
         this.setState({ snapType: true });
         const nodeWidth = Math.floor(node.getBoundingClientRect().width);
 

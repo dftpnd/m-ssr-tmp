@@ -12,18 +12,15 @@
 }
 
 .menu_list {
-    min-height: 100vh;
+    // min-height: 100vh;
     display: flex;
     align-items: stretch;
-    // overflow-x: hidden;
-    overflow-x: auto;
+    overflow-x: hidden;
     width: 100%;
     scroll-snap-type: mandatory;
     scroll-snap-points-x: repeat(100%);
     -ms-overflow-style: -ms-autohiding-scrollbar;
-
-    @media (min-width: 888px) {
-    }
+    position: relative;
 
     &--snap {
         overflow-x: auto;
@@ -55,7 +52,6 @@
         }
 
         &__box {
-            // background-color: rgba(250, 255, 175, 0.4);
             margin: 0 auto;
         }
     }

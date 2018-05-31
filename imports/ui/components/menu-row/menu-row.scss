@@ -41,7 +41,7 @@
             right: 4px;
             top: 1rem;
             height: 1px;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.6);
+            border-bottom: 1px dashed var(--text-color-active);
         }
     }
 
@@ -54,7 +54,7 @@
 
     &__hr {
         height: 1px;
-        background: black;
+        background: var(--text-color-active);
         width: 100%;
     }
 
@@ -77,8 +77,8 @@
     &__order {
         display: inline-block;
         cursor: pointer;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-        letter-spacing: 1px;
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        // letter-spacing: 1px;
 
         &::selection {
             background: none;

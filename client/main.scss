@@ -1,9 +1,17 @@
+:root {
+    --text-color: rgba(0, 0, 0, 0.8);
+    // --text-color: red;
+    --text-color-active: rgb(0, 0, 0);
+}
+
 html {
     font: 400 18px/1.6 'Helvetica Neue', 'Helvetica', 'Arial', serif;
     margin: 0;
     padding: 0;
     height: 100%;
     font-size-adjust: 0.495;
+    color: var(--text-color);
+    overflow-y: scroll;
 }
 
 body {

@@ -16,6 +16,7 @@ const Order = ({ orders }) => {
     return (
         <div className="order">
             <div className={cls('order__block', 'brake')}>
+                <h2 className="order__title">Ваш заказ</h2>
                 <div className="order__box">
                     {list.map((subItem, i) => (
                         <MenuRow
