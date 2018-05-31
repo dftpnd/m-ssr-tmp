@@ -10,7 +10,7 @@ const Header = () => (
         <div className={cls('header__box', 'brake')}>
             <div className="header__wrapper">
                 <div className="header__icon">
-                    <img src="/images/cacio-e-vino.jpg" width={267} height={179} />
+                    <img src="/images/cacio-e-vino.jpg" width={133.5} height={89.5} />
                 </div>
                 <div className="header__info">
                     <Lang />
