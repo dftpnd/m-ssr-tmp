@@ -8,9 +8,9 @@ import Lang from '../../components/lang/lang';
 const Header = () => (
     <header className="header">
         <div className={cls('header__box', 'brake')}>
-            <div className="header_wrapper">
-                <div className="header_icon">
-                    <img src="cacio_icon_2.jpg" alt="Cacio_e_vino" />
+            <div className="header__wrapper">
+                <div className="header__icon">
+                    <img src="/cacio_icon.jpg" />
                 </div>
                 <div className="header__info">
                     <Lang />
