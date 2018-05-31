@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import MenuRow from '../menu-row/menu-row';
+import OrderForm from '../order-form/order-form';
 // const T = i18n.createComponent();
 
 const Order = ({ orders }) => {
@@ -28,10 +29,7 @@ const Order = ({ orders }) => {
                         />
                     ))}
                 </div>
-                <div className="order__button">
-                    <button onClick={this.cancel}>Отменить</button>
-                    <button>Оформить заказ</button>
-                </div>
+                <OrderForm />
             </div>
         </div>
     );
