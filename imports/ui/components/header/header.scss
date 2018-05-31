@@ -8,14 +8,25 @@
 .header__wrapper {
     width: 100%;
     display: flex;
+    position: relative;
+    height: 10rem;
+}
+
+.header__icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    position: absolute;
 }
 
 .header__info {
     align-self: left;
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: absolute;
     ul {
         display: flex;
         list-style: none;
@@ -23,11 +34,4 @@
             margin-right: 0.5rem;
         }
     }
-}
-
-.header__icon {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 3rem;
 }
