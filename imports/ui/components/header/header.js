@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cls from 'classnames';
 
-import Accounts from '../../components/accounts';
+// import Accounts from '../../components/accounts';
 import Lang from '../../components/lang/lang';
 
 const Header = () => (
@@ -10,12 +10,14 @@ const Header = () => (
         <div className={cls('header__box', 'brake')}>
             <div className="header__wrapper">
                 <div className="header__icon">
-                    <img src="/images/cacio-e-vino.jpg" width={133.5} height={89.5} />
+                    <div className="header__logo">
+                        <img src="/images/cacio-e-vino.jpg" alt="Cacio e Vino" height={80} />
+                    </div>
                 </div>
                 <div className="header__info">
-                    <Lang />
-                    <a href="#" className="header_number">
-                        +7 912 199 23 39
+                    {false && <Lang />}
+                    <a href="tel:+89376153020" className="header__number">
+                        89376153020
                     </a>
                 </div>
                 {/* <Accounts /> */}
@@ -28,6 +30,6 @@ Header.propTypes = {};
 Header.defaultProps = {};
 
 const mapStateToProps = () => ({});
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = () => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

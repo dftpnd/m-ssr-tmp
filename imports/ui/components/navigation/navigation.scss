@@ -1,5 +1,5 @@
 .nav {
-    margin: 0 auto;
+    margin: -3rem auto 0;
     position: relative;
     z-index: 99;
 
@@ -19,6 +19,7 @@
         overflow-x: scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         display: flex;
+        justify-content: space-between;
 
         &::-webkit-scrollbar {
             display: none;
@@ -46,8 +47,11 @@
 
 .headmenu {
     display: flex;
-    padding-right: 2rem;
     white-space: nowrap;
+
+    &:not(:last-child) {
+        padding-right: 2rem;
+    }
 
     &__active a {
         border-bottom: 7px solid var(--text-color-active) !important;
@@ -69,6 +73,10 @@
 
     @media (max-width: 940px + (18px * 2)) {
         padding-right: 1.5rem;
+
+        &:last-child {
+            padding-right: 2rem;
+        }
 
         &:first-child {
             margin-left: 2rem;
