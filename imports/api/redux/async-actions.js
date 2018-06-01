@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { addTodo, getAllTodo, removeTodo, editTodo, getMenu, findAccounts, addOrder, addOrderRemove } from './actions';
 import { todosGetAll, todosAdd, todosEdit, todosRemove } from '../todos/methods';
-import menuGetAll from '../menu/methods';
+import { menuGetAll, address } from '../menu/methods';
 import { accountsFind } from '../accounts/methods';
 
 export function callAddTodo(message) {
@@ -79,5 +79,13 @@ export function callAddOrder(order) {
 export function callAddOrderRemove(order) {
     return dispatch => {
         dispatch(addOrderRemove(order));
+    };
+}
+// callAvailableAddress
+
+export function callAvailableAddress(data) {
+    console.log('asd', 'asd');
+    return dispatch => {
+        address();
     };
 }

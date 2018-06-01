@@ -1,25 +1,85 @@
+/* global ymaps */
+
 import React from 'react';
 import { array } from 'prop-types';
-import uniqBy from 'lodash/uniqBy';
-// import { number } from 'prop-types';
-import cls from 'classnames';
-
+import { func } from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux';
-// import i18n from 'meteor/universe:i18n';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 // const T = i18n.createComponent();
+let myMap;
+const ymapsInit = () => {
+    myMap = new ymaps.Map('map', {
+        center: [55.74, 48.74],
+        zoom: 10,
+        controls: []
+    });
+
+    myMap.behaviors.disable('dblClickZoom');
+    myMap.behaviors.disable('scrollZoom');
+
+    const myCircle = new ymaps.Circle(
+        [[55.74, 48.74], 7000],
+        {
+            balloonContent: 'Радиус круга - 10 км',
+            hintContent: 'Область доставки'
+        },
+        {
+            draggable: false,
+            fillColor: '#00FF0088',
+            strokeColor: '#fff',
+            strokeOpacity: 0.8,
+            strokeWidth: 5
+        }
+    );
+
+    myMap.geoObjects.add(myCircle);
+};
+
+function ContainsPoly(CoordX, CoordY) {
+    const myCircle = new ymaps.Circle(
+        [[55.74786, 48.742515], 7000],
+        {
+            balloonContent: 'Радиус круга - 10 км',
+            hintContent: 'Подвинь меня'
+        },
+        {
+            draggable: false,
+            fillColor: '#DB709377',
+            strokeColor: '#990066',
+            strokeOpacity: 0.8,
+            strokeWidth: 5
+        }
+    );
+
+    myCircle.options.setParent(myMap.options);
+
+    myCircle.geometry.setMap(myMap);
+
+    const ContainsPoint = myCircle.geometry.contains([CoordX, CoordY]);
+
+    console.log('ContainsPoint', ContainsPoint);
+}
 
 class OrderForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             phone: '',
-            address: '',
             delivery: 'pickup',
-            pay: 'checkout'
+            pay: 'checkout',
+            address: '',
+            addresses: [],
+            pos: [],
+            loadPos: false,
+            comment: ''
         };
     }
+
+    componentDidMount = () => {
+        ymaps.ready(ymapsInit);
+    };
 
     handlePhone = event => {
         this.setState({ phone: event.target.value });
@@ -38,7 +98,10 @@ class OrderForm extends React.Component {
     };
 
     handleAddress = event => {
-        this.setState({ address: event.target.value });
+        const address = event.target.value;
+        this.setState({ address });
+
+        ymaps.suggest(address).then(addresses => this.setState({ addresses }));
     };
 
     checkoutLabelText = () => {
@@ -46,9 +109,28 @@ class OrderForm extends React.Component {
 
         return 'На кассе';
     };
+
+    handleСomment = event => {
+        const comment = event.target.value;
+        this.setState({ comment });
+    };
+
+    setExistAddress = address => {
+        this.setState({ address: address.displayName, addresses: [], loadPos: true });
+
+        Meteor.call('getGeo', address.displayName, (error, res) => {
+            const content = JSON.parse(res.content);
+            const pos = content.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
+            const splitPos = pos.split(' ');
+            console.log('splitPos', splitPos);
+            ContainsPoly(splitPos[1], splitPos[0]);
+            this.setState({ pos: [splitPos[1], splitPos[0]], loadPos: false });
+        });
+    };
+
     render() {
         return (
-            <form className="order-form">
+            <form autoComplete="on" className="order-form">
                 <fieldset>
                     <legend>Номер телефона</legend>
                     <label htmlFor="phone">Введите номер телефона в удобнов формате</label>
@@ -66,6 +148,7 @@ class OrderForm extends React.Component {
                 </fieldset>
                 <fieldset>
                     <legend>Доставка</legend>
+                    <div id="map" style={{ height: 170, width: '100%' }} />
                     <div className="order-form__radio">
                         <div className="order-form__box">
                             <input
@@ -105,14 +188,41 @@ class OrderForm extends React.Component {
                         <div className="order-form__address">
                             <label htmlFor="address" className="order-form__label">
                                 Адрес доставки
+                                <div className="order-form__hint">Например: Иннополис спортивная 110</div>
                             </label>
 
                             <input
+                                className="order-form__address-search"
                                 onChange={this.handleAddress}
                                 value={this.state.address}
                                 id="address"
                                 name="address"
                             />
+
+                            <div className="order-form__autocomlete">
+                                {this.state.addresses.map((address, i) => (
+                                    <div key={i} onClick={() => this.setExistAddress(address)}>
+                                        {address.displayName}
+                                    </div>
+                                ))}
+                            </div>
+                            {!!this.state.pos.length && (
+                                <div>
+                                    <label htmlFor="сomment" className="order-form__label">
+                                        № квартиры (комментарий)
+                                        <div className="order-form__hint">
+                                            Например: 24 (домофон не работает звонить в 25)
+                                        </div>
+                                    </label>
+
+                                    <textarea
+                                        onChange={this.handleСomment}
+                                        value={this.state.сomment}
+                                        id="сomment"
+                                        name="сomment"
+                                    />
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -185,9 +295,13 @@ class OrderForm extends React.Component {
 }
 
 OrderForm.propTypes = {
-    orders: array.isRequired
+    // orders: array.isRequired,
+    // availableAddress: func.isRequired
 };
 
 const mapStateToProps = state => ({ orders: state.orders });
 
-export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(OrderForm);
+export default connect(mapStateToProps, {
+    fetch: callGetMenu,
+    findAccount: callFindAccount
+})(OrderForm);

@@ -10,14 +10,14 @@ import { Helmet } from 'react-helmet';
 import mainReducer from '../../api/redux/reducers';
 import routes from '../both/routes';
 import { todosGetAll } from '../../api/todos/methods';
-import getAllMenu from '../../api/menu/methods';
+import { getAllMenu } from '../../api/menu/methods';
 import { accountsFind } from '../../api/accounts/methods';
 // import { accountsFind } from '../../api/order/methods';
 
 onPageLoad(sink => {
     const context = {};
     const todos = todosGetAll.call({});
-    const menu = getAllMenu.call({});
+    const menu = []; // getAllMenu.call({});
     const accounts = accountsFind.call({ email: 'lkdnvc@gmail.com' });
     // const orders = orders.call();
     const orders = [];
