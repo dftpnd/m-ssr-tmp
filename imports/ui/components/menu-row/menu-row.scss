@@ -86,20 +86,27 @@
     }
 
     &__order:nth-child(n + 2) {
-        margin-left: 0.5rem;
+        margin-left: 0.7rem;
     }
 }
 
 .price {
-    &__length {
+    &__box {
         font-size: 0.8rem;
+        // color: lighten(#000000, 50);
+        font-weight: 300;
     }
 
-    &__box {
+    &__length {
+        // font-size: 0.8rem;
     }
 
     &__x {
-        font-weight: 300;
-        font-size: 0.8rem;
+        // font-weight: 300;
+        // font-size: 0.8rem;
+    }
+
+    &__price {
+        padding-right: 0.5rem;
     }
 }

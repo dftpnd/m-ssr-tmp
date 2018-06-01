@@ -21,6 +21,7 @@ const MenuRow = ({ dish, name, price, name_2, orders, handlerOrder, handlerOrder
                         <span className="price__box">
                             <span className="price__length">{length}</span>
                             <span className="price__x">&ensp;×&ensp;</span>
+                            <span className="price__price">{price}</span>
                         </span>
                     )}
                     {format()}&ensp;₽
