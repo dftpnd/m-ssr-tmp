@@ -86,7 +86,10 @@ class OrderForm extends React.Component {
     };
 
     handleDelivery = event => {
-        this.setState({ delivery: event.target.value });
+        const delivery = event.target.value;
+        const pay = 'checkout';
+
+        this.setState({ delivery, pay });
     };
 
     handlePay = event => {
@@ -263,24 +266,25 @@ class OrderForm extends React.Component {
                             <div className="order-form__hint">Наличными / картой / перевод сбербанк</div>
                         </label>
                     </div>
-
-                    <div className="order-form__radio">
-                        <div className="order-form__box">
-                            <input
-                                onChange={this.handlePay}
-                                checked={this.state.pay === 'online'}
-                                value="online"
-                                id="online"
-                                type="radio"
-                                name="pay"
-                                tabIndex="0"
-                            />
+                    {this.state.delivery !== 'book-it' && (
+                        <div className="order-form__radio">
+                            <div className="order-form__box">
+                                <input
+                                    onChange={this.handlePay}
+                                    checked={this.state.pay === 'online'}
+                                    value="online"
+                                    id="online"
+                                    type="radio"
+                                    name="pay"
+                                    tabIndex="0"
+                                />
+                            </div>
+                            <label htmlFor="online" className="order-form__label">
+                                <span className="order-form__title">Онлайн оплата</span>
+                                <div className="order-form__hint">Яндекс касса</div>
+                            </label>
                         </div>
-                        <label htmlFor="online" className="order-form__label">
-                            <span className="order-form__title">Онлайн оплата</span>
-                            <div className="order-form__hint">Яндекс касса</div>
-                        </label>
-                    </div>
+                    )}
                 </fieldset>
 
                 <div className="order-form__buttons">
