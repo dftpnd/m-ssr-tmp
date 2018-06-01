@@ -16,8 +16,13 @@ const MenuRow = ({ dish, name, price, name_2, orders, handlerOrder, handlerOrder
                 <h3 className="menu-row__title">
                     <span className="menu-row__wraptitle">{name}</span>
                 </h3>
-                <div className="menu-row__price">
-                    {!isEmpty && <span>{length} × </span>}
+                <div className="menu-row__price price">
+                    {!isEmpty && (
+                        <span className="price__box">
+                            <span className="price__length">{length}</span>
+                            <span className="price__x">&ensp;×&ensp;</span>
+                        </span>
+                    )}
                     {format()}&ensp;₽
                 </div>
             </div>

@@ -89,3 +89,17 @@
         margin-left: 0.5rem;
     }
 }
+
+.price {
+    &__length {
+        font-size: 0.8rem;
+    }
+
+    &__box {
+    }
+
+    &__x {
+        font-weight: 300;
+        font-size: 0.8rem;
+    }
+}
