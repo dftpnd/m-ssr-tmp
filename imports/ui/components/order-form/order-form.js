@@ -98,10 +98,6 @@ class OrderForm extends React.Component {
         this.setState({ pay: event.target.value });
     };
 
-    handleOrder = event => {
-        console.log('state', this.state);
-    };
-
     handleAddress = event => {
         const address = event.target.value;
         this.setState({ address });
@@ -130,6 +126,21 @@ class OrderForm extends React.Component {
             const available = ContainsPoly(splitPos[1], splitPos[0]);
 
             this.setState({ pos: [splitPos[1], splitPos[0]], loadPos: false, available });
+        });
+    };
+
+    handleOrder = event => {
+        const message = `Зказ:
+        ${this.props.orders.map(order => order.dish)};
+        телефон: ${this.state.phone};
+        delivery: ${this.state.delivery};
+        pay: ${this.state.pay};
+        address: ${this.state.address};
+        comment: ${this.state.comment};
+        available: ${this.state.available};`;
+
+        Meteor.call('telegramSend', message, (error, res) => {
+            console.log('res', res);
         });
     };
 
@@ -314,7 +325,7 @@ class OrderForm extends React.Component {
 }
 
 OrderForm.propTypes = {
-    // orders: array.isRequired,
+    orders: array.isRequired
     // availableAddress: func.isRequired
 };
 

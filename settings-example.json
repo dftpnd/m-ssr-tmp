@@ -1,5 +1,6 @@
 {
     "somePrivateKey": "123456789",
+    "TELEGRAM_TOKEN": "",
     "public": {
         "somePublicKey": "987654321"
     },
