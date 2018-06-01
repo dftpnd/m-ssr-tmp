@@ -1,4 +1,7 @@
 .order-form {
+    margin-bottom: 15rem;
+    padding-bottom: 3rem;
+
     &__autocomlete {
         border: 1px solid red;
     }
@@ -39,5 +42,15 @@
 
     &__hint {
         font: 300 16px/18px 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+    }
+
+    &__buttons {
+        padding-top: 1rem;
+        text-align: right;
+
+        button {
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
     }
 }

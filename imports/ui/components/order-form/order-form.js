@@ -140,7 +140,7 @@ class OrderForm extends React.Component {
                         onChange={this.handlePhone}
                         id="phone"
                         type="tel"
-                        placeholder="89178992303"
+                        placeholder="89376153020"
                         size="20"
                         minLength="9"
                         maxLength="11"
@@ -283,11 +283,11 @@ class OrderForm extends React.Component {
                     </div>
                 </fieldset>
 
-                <div>
+                <div className="order-form__buttons">
+                    <button type="button">Отменить</button>
                     <button type="button" onClick={this.handleOrder}>
                         Заказать
                     </button>
-                    <button type="button">Отменить</button>
                 </div>
             </form>
         );
