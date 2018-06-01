@@ -59,6 +59,7 @@ function ContainsPoly(CoordX, CoordY) {
 
     const ContainsPoint = myCircle.geometry.contains([CoordX, CoordY]);
 
+    return ContainsPoint;
     console.log('ContainsPoint', ContainsPoint);
 }
 
@@ -73,7 +74,8 @@ class OrderForm extends React.Component {
             addresses: [],
             pos: [],
             loadPos: false,
-            comment: ''
+            comment: '',
+            available: false
         };
     }
 
@@ -125,9 +127,9 @@ class OrderForm extends React.Component {
             const content = JSON.parse(res.content);
             const pos = content.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
             const splitPos = pos.split(' ');
-            console.log('splitPos', splitPos);
-            ContainsPoly(splitPos[1], splitPos[0]);
-            this.setState({ pos: [splitPos[1], splitPos[0]], loadPos: false });
+            const available = ContainsPoly(splitPos[1], splitPos[0]);
+
+            this.setState({ pos: [splitPos[1], splitPos[0]], loadPos: false, available });
         });
     };
 
@@ -136,9 +138,12 @@ class OrderForm extends React.Component {
             <form autoComplete="on" className="order-form">
                 <fieldset>
                     <legend>Номер телефона</legend>
-                    <label htmlFor="phone">Введите номер телефона в удобнов формате</label>
-                    <br />
+                    <label className="order-form__label" htmlFor="phone">
+                        <span className="order-form__title">Введите номер телефона в удобном формате</span>
+                        <div className="order-form__hint">Для отправки статуса заказа</div>
+                    </label>
                     <input
+                        className="order-form__field"
                         value={this.state.phone}
                         onChange={this.handlePhone}
                         id="phone"
@@ -151,7 +156,7 @@ class OrderForm extends React.Component {
                 </fieldset>
                 <fieldset>
                     <legend>Доставка</legend>
-                    <div id="map" style={{ height: 170, width: '100%' }} />
+                    <div id="map" className="order-form__map" style={{ height: 170, width: '100%' }} />
                     <div className="order-form__radio">
                         <div className="order-form__box">
                             <input
@@ -182,7 +187,7 @@ class OrderForm extends React.Component {
                             />
                         </div>
                         <label htmlFor="courier" className="order-form__label">
-                            <span className="form__title">Курьером</span>
+                            <span className="order-form__title">Курьером</span>
                             <div className="order-form__hint">Описан способ доставки курьером</div>
                         </label>
                     </div>
@@ -190,7 +195,7 @@ class OrderForm extends React.Component {
                     {this.state.delivery === 'courier' && (
                         <div className="order-form__address">
                             <label htmlFor="address" className="order-form__label">
-                                Адрес доставки
+                                <span className="order-form__title">Адрес доставки</span>
                                 <div className="order-form__hint">Например: Иннополис спортивная 110</div>
                             </label>
 
@@ -202,14 +207,24 @@ class OrderForm extends React.Component {
                                 name="address"
                             />
 
-                            <div className="order-form__autocomlete">
-                                {this.state.addresses.map((address, i) => (
-                                    <div key={i} onClick={() => this.setExistAddress(address)}>
-                                        {address.displayName}
-                                    </div>
-                                ))}
-                            </div>
-                            {!!this.state.pos.length && (
+                            {!!this.state.addresses.length && (
+                                <div className="order-form__autocomlete">
+                                    <label htmlFor="address" className="order-form__label">
+                                        <span className="order-form__title">Выберите адрсе из списка</span>
+                                    </label>
+                                    {this.state.addresses.map((address, i) => (
+                                        <div
+                                            className="order-form__exist-address"
+                                            key={i}
+                                            onClick={() => this.setExistAddress(address)}
+                                        >
+                                            {address.displayName}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {this.state.available && (
                                 <div>
                                     <label htmlFor="сomment" className="order-form__label">
                                         № квартиры (комментарий)

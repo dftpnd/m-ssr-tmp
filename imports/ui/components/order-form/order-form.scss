@@ -3,11 +3,21 @@
     padding-bottom: 3rem;
 
     &__autocomlete {
-        border: 1px solid red;
+        padding-top: 1rem;
+    }
+
+    &__map {
+        margin-bottom: 1rem;
+    }
+
+    &__field {
+        font-size: 1rem;
+        margin-top: 0.5rem;
     }
 
     &__address-search {
         width: 100%;
+        max-width: 30rem;
         font-size: 1rem;
     }
 
@@ -32,7 +42,8 @@
     }
 
     &__label {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
 
     &__address {
@@ -52,5 +63,14 @@
             font-size: 1rem;
             margin-left: 1rem;
         }
+    }
+
+    &__exist-address {
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        font: 300 18px/18px 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+        padding: 0.2rem 0;
+        margin: 0.3rem 0 0.3rem;
+        background-color: #fff;
+        cursor: pointer;
     }
 }
