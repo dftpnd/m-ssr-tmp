@@ -12,7 +12,6 @@
 
     &__baloon {
         width: 2rem;
-        background: red;
     }
 
     &__scroll {
@@ -33,10 +32,14 @@
     }
 
     &__menu {
-        margin: 0 auto;
+        // margin: 0 auto;
         position: relative;
         bottom: -2.3rem;
-        padding: 0;
+        // max-width: 940px;
+        padding-left: calc((100% - 940px) / 2);
+
+        // max-width: ;
+        //padding: 0 1rem;
 
         @media (max-width: 940px + (18px * 2)) {
             max-width: none;
@@ -79,11 +82,11 @@
         padding-right: 1.5rem;
 
         &:last-child {
-            padding-right: 2rem;
+            // padding-right: 2rem;
         }
 
         &:first-child {
-            margin-left: 2rem;
+            margin-left: 1rem;
         }
     }
 }

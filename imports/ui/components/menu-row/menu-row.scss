@@ -6,6 +6,7 @@
     overflow: hidden;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    line-height: 20px;
 
     &__content {
         overflow: hidden;
@@ -21,25 +22,31 @@
         align-items: flex-start;
     }
 
-    &__title,
     &__price {
         font-size: 20px;
+        line-height: 20px;
+    }
+
+    &__title,
+    &__price {
         font-weight: 400;
         margin-top: 0;
         margin-bottom: 0;
-        line-height: 1.2;
+        text-transform: uppercase;
     }
 
     &__title {
+        font-size: 18px;
         width: 100%;
         position: relative;
+        line-height: 20px;
 
         &::after {
             content: '';
             position: absolute;
             left: 0;
             right: 4px;
-            top: 1rem;
+            top: 15px;
             height: 1px;
             border-bottom: 1px dashed var(--text-color-active);
         }
@@ -61,6 +68,7 @@
     &__price {
         text-align: right;
         white-space: nowrap;
+        display: flex;
     }
 
     &__text,
@@ -77,8 +85,6 @@
     &__order {
         display: inline-block;
         cursor: pointer;
-        // border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-        // letter-spacing: 1px;
 
         &::selection {
             background: none;
@@ -88,13 +94,18 @@
     &__order:nth-child(n + 2) {
         margin-left: 0.7rem;
     }
+
+    &__box {
+        white-space: nowrap;
+        display: flex;
+    }
 }
 
 .price {
     &__box {
         font-size: 0.8rem;
-        // color: lighten(#000000, 50);
         font-weight: 300;
+        display: flex;
     }
 
     &__length {

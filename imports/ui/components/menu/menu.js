@@ -25,7 +25,16 @@ class Menu extends React.Component {
             orderItem: {},
             snapType: false,
             activeIndex: 0,
-            anchors: ['#salads', '#snacks', '#pizza', '#pasta', '#hotDishes', '#soups']
+            anchors: [
+                '#pizza',
+                '#hotDishes',
+                '#dessert',
+                '#bakeryProducts',
+                '#snacks',
+                '#salads',
+                '#pasta',
+                '#rissotto'
+            ]
         };
     }
 

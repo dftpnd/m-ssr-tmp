@@ -16,8 +16,8 @@ const Header = () => (
                 </div>
                 <div className="header__info">
                     {false && <Lang />}
-                    <a href="tel:+89376153020" className="header__number">
-                        89376153020
+                    <a href="tel:+78432453020" className="header__number">
+                        +78432453020
                     </a>
                 </div>
                 {/* <Accounts /> */}

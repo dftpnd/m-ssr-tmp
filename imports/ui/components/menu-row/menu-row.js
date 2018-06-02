@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func, array } from 'prop-types';
+import { string, func, array, number } from 'prop-types';
 import { connect } from 'react-redux';
 import { callAddOrder, callAddOrderRemove } from '../../../api/redux/async-actions';
 
@@ -24,19 +24,19 @@ const MenuRow = ({ dish, name, price, name_2, orders, handlerOrder, handlerOrder
                             <span className="price__price">{price}</span>
                         </span>
                     )}
-                    {format()}&ensp;₽
+                    <div>{format()}&ensp;₽</div>
                 </div>
             </div>
             <div className="menu-row__action">
                 <p className="menu-row__text">{name_2}</p>
-                <div>
+                <div className="menu-row__box">
                     {isEmpty && (
                         <span className="menu-row__order" onClick={() => handlerOrder({ dish, name, price, name_2 })}>
                             заказать
                         </span>
                     )}
                     {!isEmpty && (
-                        <div>
+                        <div className="menu-row__box">
                             <span className="menu-row__order" onClick={() => handlerOrderRemove({ dish })}>
                                 удалить
                             </span>
@@ -58,7 +58,7 @@ MenuRow.propTypes = {
     dish: string.isRequired,
     name: string.isRequired,
     name_2: string,
-    price: string.isRequired,
+    price: number.isRequired,
     handlerOrder: func.isRequired,
     handlerOrderRemove: func.isRequired,
     orders: array.isRequired

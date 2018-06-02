@@ -1,19 +1,20 @@
 import React from 'react';
 import { array } from 'prop-types';
 import uniqBy from 'lodash/uniqBy';
-// import { number } from 'prop-types';
+import reduce from 'lodash/reduce';
+import map from 'lodash/map';
 import cls from 'classnames';
-
 import { connect } from 'react-redux';
-// import i18n from 'meteor/universe:i18n';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import MenuRow from '../menu-row/menu-row';
 import OrderForm from '../order-form/order-form';
-// const T = i18n.createComponent();
 
 const Order = ({ orders }) => {
     const list = uniqBy(orders, 'dish');
+    const summList = map(orders, item => item.price);
+    const summ = reduce(summList, (sum, n) => sum + n);
+
     return (
         <div className="order">
             <div className={cls('order__block', 'brake')}>
@@ -29,6 +30,7 @@ const Order = ({ orders }) => {
                         />
                     ))}
                 </div>
+                <h3 className="order__result">Итог:&nbsp;{summ}&ensp;₽</h3>
                 <OrderForm />
             </div>
         </div>

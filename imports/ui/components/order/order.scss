@@ -29,6 +29,11 @@
         margin-bottom: 0;
     }
 
+    &__result {
+        text-align: right;
+        font-weight: 500;
+    }
+
     &__button {
         margin: 0 auto;
         display: flex;
@@ -39,5 +44,9 @@
             margin-left: 1rem;
             font-size: 1.5rem;
         }
+    }
+
+    .menu-row__wraptitle {
+        background: #f0ff1d;
     }
 }

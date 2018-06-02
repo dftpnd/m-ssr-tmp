@@ -33,7 +33,7 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className="nav" ref={this.navLink}>
-                <section className={cls('nav__menu', 'brake')}>
+                <section className={cls('nav__menu')}>
                     <div className="nav__scroll">
                         {menuStub.map((item, index) => (
                             <div
