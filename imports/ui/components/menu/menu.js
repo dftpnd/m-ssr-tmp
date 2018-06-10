@@ -14,7 +14,7 @@ import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
 import menuStub from './menu-mock';
 
 const T = i18n.createComponent();
-
+			
 class Menu extends React.Component {
     constructor(props) {
         super(props);
@@ -94,10 +94,16 @@ class Menu extends React.Component {
 
         return this.state.activeIndex;
     };
+    getTabs = () => { console.log('hello tabs') }
+	 
     render() {
         return (
             <section className="">
                 <Navigation activeIndex={this.getIndex()} location={this.props.location} anchors={this.state.anchors} />
+		<div onClick={this.getTabs}
+			className='tabs prev'
+			id='tabs'>
+		</div>
                 <div
                     className={cls(
                         'menu_list',
@@ -128,6 +134,10 @@ class Menu extends React.Component {
                         </div>
                     ))}
                 </div>
+		<div onClick={this.getTabs}
+			 className='tabs next'
+		         id='tabs'>
+		</div>
                 {!!this.props.orders.length && <Order />}
             </section>
         );
