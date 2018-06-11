@@ -56,3 +56,16 @@
         }
     }
 }
+
+.tabs {
+    height: 10px;
+    background-color: black;
+
+    &__left {
+        border: 1px solid green;
+    }
+
+    &__right {
+        border: 1px solid blue;
+    }
+}
