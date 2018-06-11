@@ -94,25 +94,24 @@ class Menu extends React.Component {
 
         return this.state.activeIndex;
     };
-    getTabs = () => { console.log('hello tabs') }
+    getTabs = () => {
+		const activeIndex = this.state.activeIndex + 1;
+		this.setAnchors(activeIndex);
+		 console.log('aciveIndex',activeIndex);
+
+	 }
 	 
     render() {
         return (
-            <section className="">
+            <section className="mainsection">
                 <Navigation activeIndex={this.getIndex()} location={this.props.location} anchors={this.state.anchors} />
 		<div onClick={this.getTabs}
-			className='tabs prev'
-			id='tabs'>
+			className='tabs prev'>
 		</div>
                 <div
                     className={cls(
                         'menu_list',
                         { 'menu_list--scrolled': this.state.scroll === 1 },
-                        { 'menu_list--snap': this.state.snapType }
-                    )}
-                    ref={this.paneDidMount}
-                >
-                    {menuStub.map((item, index) => (
                         <div
                             key={index}
                             id={item.key}
@@ -135,12 +134,11 @@ class Menu extends React.Component {
                     ))}
                 </div>
 		<div onClick={this.getTabs}
-			 className='tabs next'
-		         id='tabs'>
+			 className='tabs next'>
 		</div>
                 {!!this.props.orders.length && <Order />}
             </section>
-        );
+       );
     }
 }
 
@@ -152,3 +150,8 @@ Menu.propTypes = {
 const mapStateToProps = state => ({ orders: state.orders });
 
 export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Menu);
+import { Meteor } from 'meteor/meteor';
+import React from 'react';
+import { object, array } from 'prop-types';
+import cls from 'classnames';
+import debounce from 'lodash/debounce';
