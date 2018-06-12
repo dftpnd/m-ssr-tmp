@@ -57,15 +57,28 @@
     }
 }
 
+.menu_relative{
+    position: relative;
+}
+
 .tabs {
-    height: 10px;
+    position:absolute;
+    height: 100%;
+    box-sizing:border-box;
+    margin-top:5%;
+    width: 10%;
     background-color: black;
+    opacity:0.7;
 
     &__left {
         border: 1px solid green;
+	top:0;
+	left:0;
     }
 
     &__right {
         border: 1px solid blue;
+	top:0;
+	right:0;
     }
 }

@@ -94,15 +94,17 @@ class Menu extends React.Component {
 
         return this.state.activeIndex;
     };
-    getTabs = () => {
+    getLeft = () => {
         const activeIndex = this.state.activeIndex + 1;
         this.setAnchors(activeIndex);
         // console.log('aciveIndex', activeIndex);
     };
-
+    getRight = () => {
+	alert('hello world')
+    };
     render() {
         return (
-            <section className="">
+            <section className="menu_relative">
                 <Navigation activeIndex={this.getIndex()} location={this.props.location} anchors={this.state.anchors} />
                 <div onClick={this.getLeft} className="tabs tabs__left" />
                 <div onClick={this.getRight} className="tabs tabs__right" />
