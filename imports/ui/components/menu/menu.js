@@ -95,13 +95,15 @@ class Menu extends React.Component {
         return this.state.activeIndex;
     };
     getLeft = () => {
-        const activeIndex = this.state.activeIndex + 1;
+        const activeIndex = this.state.activeIndex - 1;
         this.setAnchors(activeIndex);
 	this.setState({activeIndex});
         // console.log('aciveIndex', activeIndex);
     };
     getRight = () => {
-	alert('hello world')
+	const activeIndex = this.state.activeIndex + 1;
+	this.setAnchors(activeIndex);
+	this.setState({activeIndex});
     };
     render() {
         return (

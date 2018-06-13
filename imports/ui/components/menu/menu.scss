@@ -22,6 +22,7 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
     position: relative;
     will-change: scroll-position;
+    z-index:1;
 
     &--snap {
         overflow-x: auto;
@@ -62,6 +63,7 @@
 }
 
 .tabs {
+    display:flex;
     position:absolute;
     height: 100%;
     box-sizing:border-box;
@@ -69,6 +71,8 @@
     width: 10%;
     background-color: black;
     opacity:0.7;
+    z-index:2;
+    cursor:pointer;
 
     &__left {
         border: 1px solid green;
