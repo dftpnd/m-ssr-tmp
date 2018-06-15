@@ -22,7 +22,7 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
     position: relative;
     will-change: scroll-position;
-    z-index:1;
+    z-index: 1;
 
     &--snap {
         overflow-x: auto;
@@ -58,31 +58,30 @@
     }
 }
 
-.menu_relative{
+.menu_relative {
     position: relative;
 }
 
 .tabs {
-    display:flex;
-    position:absolute;
+    display: flex;
+    position: absolute;
     height: 100%;
-    box-sizing:border-box;
-    margin-top:5%;
-    width: 10%;
-    background-color: black;
-    opacity:0.7;
-    z-index:2;
-    cursor:pointer;
+    box-sizing: border-box;
+    margin-top: 5%;
+    width: calc((100% - (940px + 2rem)) / 2);
+    min-width: 1rem;
+    z-index: 2;
+    background-color: aqua;
+    opacity: 0.5;
+    cursor: pointer;
 
     &__left {
-        border: 1px solid green;
-	top:0;
-	left:0;
+        top: 0;
+        left: 0;
     }
 
     &__right {
-        border: 1px solid blue;
-	top:0;
-	right:0;
+        top: 0;
+        right: 0;
     }
 }

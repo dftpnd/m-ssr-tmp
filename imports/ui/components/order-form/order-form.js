@@ -130,6 +130,17 @@ class OrderForm extends React.Component {
     };
 
     handleOrder = event => {
+        event.preventDefault();
+
+        if (!event.target.checkValidity()) {
+            // form is invalid! so we do nothing
+            alert('bad!');
+            return;
+        }
+        this.setState({ validForm: true });
+
+        const data = new FormData(event.target);
+
         const message = `Зказ:
         ${this.props.orders.map(order => order.dish)};
         телефон: ${this.state.phone};
@@ -139,14 +150,24 @@ class OrderForm extends React.Component {
         comment: ${this.state.comment};
         available: ${this.state.available};`;
 
-        Meteor.call('telegramSend', message, (error, res) => {
-            console.log('res', res);
-        });
+        console.log('event', event);
+
+        // сохрани заказ в сторе
+        // редюсер стора сохраняет в бд
+        //
+        // верни номер заказа из базы
+        // сгенрь ссылку чека
+        // перейди на ссылку чека
+        // отправь уведомление в телегу
+
+        // Meteor.call('telegramSend', message, (error, res) => {
+        //     console.log('res', res);
+        // });onClick={this.handleOrder}
     };
 
     render() {
         return (
-            <form autoComplete="on" className="order-form">
+            <form autoComplete="on" noValidate className="order-form" onSubmit={this.handleOrder}>
                 <fieldset>
                     <legend>Номер телефона</legend>
                     <label className="order-form__label" htmlFor="phone">
@@ -163,6 +184,7 @@ class OrderForm extends React.Component {
                         size="20"
                         minLength="9"
                         maxLength="11"
+                        required
                     />
                 </fieldset>
                 <fieldset>
@@ -292,7 +314,7 @@ class OrderForm extends React.Component {
                             <div className="order-form__hint">Наличными / картой / перевод сбербанк</div>
                         </label>
                     </div>
-                    {this.state.delivery !== 'book-it' && (
+                    {false && (
                         <div className="order-form__radio">
                             <div className="order-form__box">
                                 <input
@@ -315,9 +337,7 @@ class OrderForm extends React.Component {
 
                 <div className="order-form__buttons">
                     <button type="button">Отменить</button>
-                    <button type="button" onClick={this.handleOrder}>
-                        Заказать
-                    </button>
+                    <button type="button">Заказать</button>
                 </div>
             </form>
         );
@@ -331,7 +351,10 @@ OrderForm.propTypes = {
 
 const mapStateToProps = state => ({ orders: state.orders });
 
-export default connect(mapStateToProps, {
-    fetch: callGetMenu,
-    findAccount: callFindAccount
-})(OrderForm);
+export default connect(
+    mapStateToProps,
+    {
+        fetch: callGetMenu,
+        findAccount: callFindAccount
+    }
+)(OrderForm);
