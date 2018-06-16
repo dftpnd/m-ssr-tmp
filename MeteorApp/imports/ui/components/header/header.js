@@ -9,7 +9,7 @@ const Header = () => (
             <div className="header__wrapper">
                 <div className="header__icon">
                     <div className="header__logo">
-                        <img src="/images/cacio-e-vino.jpg" alt="Cacio e Vino" height={80} />
+                        <img src="/images/cacio-e-vino.jpg" alt="Cacio e Vino" height={110} />
                     </div>
                 </div>
                 <div className="header__info">
