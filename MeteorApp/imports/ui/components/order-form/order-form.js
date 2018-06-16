@@ -150,7 +150,7 @@ class OrderForm extends React.Component {
         comment: ${this.state.comment};
         available: ${this.state.available};`;
 
-        console.log('event', event);
+        // console.log('event', event);
 
         // сохрани заказ в сторе
         // редюсер стора сохраняет в бд
@@ -160,9 +160,9 @@ class OrderForm extends React.Component {
         // перейди на ссылку чека
         // отправь уведомление в телегу
 
-        // Meteor.call('telegramSend', message, (error, res) => {
-        //     console.log('res', res);
-        // });onClick={this.handleOrder}
+        Meteor.call('telegramSend', message, (error, res) => {
+            console.log('res', res);
+        });
     };
 
     render() {
