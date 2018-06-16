@@ -139,7 +139,7 @@ class OrderForm extends React.Component {
         }
         this.setState({ validForm: true });
 
-        const data = new FormData(event.target);
+        // const data = new FormData(event.target);
 
         const message = `Зказ:
         ${this.props.orders.map(order => order.dish)};
@@ -159,6 +159,8 @@ class OrderForm extends React.Component {
         // сгенрь ссылку чека
         // перейди на ссылку чека
         // отправь уведомление в телегу
+
+        console.log('message', message);
 
         Meteor.call('telegramSend', message, (error, res) => {
             console.log('res', res);
@@ -337,7 +339,7 @@ class OrderForm extends React.Component {
 
                 <div className="order-form__buttons">
                     <button type="button">Отменить</button>
-                    <button type="button">Заказать</button>
+                    <button type="submit">Заказать</button>
                 </div>
             </form>
         );
