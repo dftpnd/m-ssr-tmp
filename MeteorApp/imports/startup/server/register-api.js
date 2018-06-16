@@ -21,7 +21,8 @@ Meteor.methods({
     async telegramSend(order) {
         check(order, String);
 
-        return TelegramBot.send(order, '@daftpandwork', true);
+        return TelegramBot.send(order, '@tototest1', true);
+        // return TelegramBot.send(order, '@daftpandwork', true);
     }
 });
 
