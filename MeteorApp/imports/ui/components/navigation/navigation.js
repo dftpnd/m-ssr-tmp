@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
+import { classNames } from 'meteor/maxharris9:classnames';
 import React from 'react';
 import { number } from 'prop-types';
-import cls from 'classnames';
 import { connect } from 'react-redux';
 import i18n from 'meteor/universe:i18n';
 
@@ -33,12 +33,12 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className="nav" ref={this.navLink}>
-                <section className={cls('nav__menu')}>
+                <section className={classNames('nav__menu')}>
                     <div className="nav__scroll">
                         {menuStub.map((item, index) => (
                             <div
                                 key={index}
-                                className={cls('headmenu', active(index, this.props.activeIndex))}
+                                className={classNames('headmenu', active(index, this.props.activeIndex))}
                                 ref={this.links[index]}
                             >
                                 <a href={`#${item.key}`}>
@@ -65,4 +65,7 @@ Navigation.defaultProps = {
 
 const mapStateToProps = state => ({ orders: state.orders });
 
-export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Navigation);
+export default connect(
+    mapStateToProps,
+    { fetch: callGetMenu, findAccount: callFindAccount }
+)(Navigation);

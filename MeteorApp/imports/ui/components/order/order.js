@@ -3,7 +3,7 @@ import { array } from 'prop-types';
 import uniqBy from 'lodash/uniqBy';
 import reduce from 'lodash/reduce';
 import map from 'lodash/map';
-import cls from 'classnames';
+import { classNames } from 'meteor/maxharris9:classnames';
 import { connect } from 'react-redux';
 
 import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
@@ -17,7 +17,7 @@ const Order = ({ orders }) => {
 
     return (
         <div className="order">
-            <div className={cls('order__block', 'brake')}>
+            <div className={classNames('order__block', 'brake')}>
                 <h2 className="order__title">Ваш заказ</h2>
                 <div className="order__box">
                     {list.map((subItem, i) => (
@@ -43,4 +43,7 @@ Order.propTypes = {
 
 const mapStateToProps = state => ({ orders: state.orders });
 
-export default connect(mapStateToProps, { fetch: callGetMenu, findAccount: callFindAccount })(Order);
+export default connect(
+    mapStateToProps,
+    { fetch: callGetMenu, findAccount: callFindAccount }
+)(Order);

@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import cls from 'classnames';
-
-// import Accounts from '../../components/accounts';
+import { classNames } from 'meteor/maxharris9:classnames';
 import Lang from '../../components/lang/lang';
 
 const Header = () => (
     <header className="header">
-        <div className={cls('header__box', 'brake')}>
+        <div className={classNames('header__box', 'brake')}>
             <div className="header__wrapper">
                 <div className="header__icon">
                     <div className="header__logo">
@@ -32,4 +30,7 @@ Header.defaultProps = {};
 const mapStateToProps = () => ({});
 const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Header);

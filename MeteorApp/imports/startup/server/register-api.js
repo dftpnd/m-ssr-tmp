@@ -3,8 +3,8 @@ import { TelegramBot } from 'meteor/benjick:telegram-bot';
 import { check } from 'meteor/check';
 import { HTTP } from 'meteor/http';
 
-import '../../api/todos/todos';
-import '../../api/todos/methods';
+import '../../api/orders/orders';
+import '../../api/orders/methods';
 import '../../api/menu/menu';
 import '../../api/menu/methods';
 import '../../api/accounts/accounts';

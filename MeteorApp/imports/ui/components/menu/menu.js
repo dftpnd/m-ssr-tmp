@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
+import { classNames } from 'meteor/maxharris9:classnames';
 import React from 'react';
 import { object, array } from 'prop-types';
-import cls from 'classnames';
+
 import debounce from 'lodash/debounce';
 import indexOf from 'lodash/indexOf';
 import { connect } from 'react-redux';
@@ -119,7 +120,7 @@ class Menu extends React.Component {
                 <div onClick={this.getLeft} className="tabs tabs__left" />
                 <div onClick={this.getRight} className="tabs tabs__right" />
                 <div
-                    className={cls(
+                    className={classNames(
                         'menu_list',
                         { 'menu_list--scrolled': this.state.scroll === 1 },
                         { 'menu_list--snap': this.state.snapType }
@@ -130,11 +131,11 @@ class Menu extends React.Component {
                         <div
                             key={index}
                             id={item.key}
-                            className={cls('list', {
+                            className={classNames('list', {
                                 list__active: index === this.state.activeIndex
                             })}
                         >
-                            <div className={cls('list__box', 'brake')}>
+                            <div className={classNames('list__box', 'brake')}>
                                 {item.list.map((subItem, i) => (
                                     <MenuRow
                                         key={i}
