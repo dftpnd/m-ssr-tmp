@@ -1,8 +1,21 @@
 import { Meteor } from 'meteor/meteor';
-import { addTodo, getAllTodo, removeTodo, editTodo, getMenu, findAccounts, addOrder, addOrderRemove } from './actions';
+
+import {
+    addTodo,
+    getAllTodo,
+    removeTodo,
+    editTodo,
+    getMenu,
+    findAccounts,
+    addOrder,
+    addOrderRemove,
+    createOrder
+} from './actions';
+
 import { todosGetAll, todosAdd, todosEdit, todosRemove } from '../todos/methods';
 import { menuGetAll, address } from '../menu/methods';
 import { accountsFind } from '../accounts/methods';
+import { ordersCreate } from '../orders/methods';
 
 export function callAddTodo(message) {
     return dispatch =>
@@ -66,6 +79,19 @@ export function callFindAccount(data) {
                 throw new Meteor.Error(err.message);
             } else {
                 dispatch(findAccounts(result));
+            }
+        });
+}
+
+export function callCreateOrder(data) {
+    console.log('1.data ', data);
+    return dispatch =>
+        ordersCreate.call(data, (err, result) => {
+            if (err) {
+                throw new Meteor.Error(err.message);
+            } else {
+                console.log('dispatch result', result);
+                // dispatch(createOrder(result));
             }
         });
 }

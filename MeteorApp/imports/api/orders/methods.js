@@ -10,10 +10,11 @@ export const ordersFind = new ValidatedMethod({
     }
 });
 
-export const ordersAdd = new ValidatedMethod({
+export const ordersCreate = new ValidatedMethod({
     name: 'orders.methods.add',
     validate: new SimpleSchema({ date: { type: String } }).validator(),
     run({ date }) {
-        return Orders.insert({ date });
+        console.log('ordersCreate {date}', date);
+        return Orders.insert({ name: date });
     }
 });

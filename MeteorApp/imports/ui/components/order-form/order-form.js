@@ -1,12 +1,11 @@
 /* global ymaps */
 
 import React from 'react';
-import { array } from 'prop-types';
-import { func } from 'prop-types';
+import { array, func } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux';
 
-import { callGetMenu, callFindAccount } from '../../../api/redux/async-actions';
+import { callGetMenu, callCreateOrder } from '../../../api/redux/async-actions';
 // const T = i18n.createComponent();
 let myMap;
 const ymapsInit = () => {
@@ -60,7 +59,7 @@ function ContainsPoly(CoordX, CoordY) {
     const ContainsPoint = myCircle.geometry.contains([CoordX, CoordY]);
 
     return ContainsPoint;
-    console.log('ContainsPoint', ContainsPoint);
+    // console.log('ContainsPoint', ContainsPoint);
 }
 
 class OrderForm extends React.Component {
@@ -160,7 +159,9 @@ class OrderForm extends React.Component {
         // перейди на ссылку чека
         // отправь уведомление в телегу
 
-        console.log('message', message);
+        // console.log('message', message);
+
+        this.props.createOrder({ date: 'hello world' });
 
         Meteor.call('telegramSend', message, (error, res) => {
             console.log('res', res);
@@ -347,8 +348,8 @@ class OrderForm extends React.Component {
 }
 
 OrderForm.propTypes = {
-    orders: array.isRequired
-    // availableAddress: func.isRequired
+    orders: array.isRequired,
+    createOrder: func
 };
 
 const mapStateToProps = state => ({ orders: state.orders });
@@ -357,6 +358,6 @@ export default connect(
     mapStateToProps,
     {
         fetch: callGetMenu,
-        findAccount: callFindAccount
+        createOrder: callCreateOrder
     }
 )(OrderForm);

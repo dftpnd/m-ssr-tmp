@@ -8,15 +8,15 @@ Orders.deny({
         return true;
     },
     update() {
-        return false;
+        return true;
     },
     remove() {
-        return false;
+        return true;
     }
 });
 
 Orders.schema = new SimpleSchema({
-    date: { type: String }
+    name: { type: String }
     // choice: { type: Array }
     // form: { type: Object }
 });

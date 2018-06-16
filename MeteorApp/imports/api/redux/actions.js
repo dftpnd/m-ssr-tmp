@@ -8,6 +8,7 @@ export const EDIT_TODO = 'EDIT_TODO';
 export const GET_ALL_TODO = 'GET_ALL_TODO';
 export const GET_MENU = 'GET_MENU';
 export const FIND_ACCOUNT = 'FIND_ACCOUNT';
+export const CREATE_ORDER = 'CREATE_ORDER';
 export const ADD_ORDER = 'ADD_ORDER';
 export const ADD_ORDER_REMOVE = 'ADD_ORDER_REMOVE';
 
@@ -67,6 +68,13 @@ export function addOrder(data) {
 export function addOrderRemove(data) {
     return {
         type: ADD_ORDER_REMOVE,
+        data
+    };
+}
+
+export function createOrder(data) {
+    return {
+        type: CREATE_ORDER,
         data
     };
 }
