@@ -1,3 +1,7 @@
+html:not(.mdl-js) .menu-row__order {
+    display: none;
+}
+
 .menu-row {
     display: flex;
     justify-content: space-between;

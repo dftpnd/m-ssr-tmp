@@ -12,6 +12,8 @@ if (cookies.has('locale')) {
 }
 
 Meteor.startup(() => {
+    // document.body.className += ' ' + 'js-body';
+
     navigator.serviceWorker
         .register('/sw.js')
         .then()
