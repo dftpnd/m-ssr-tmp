@@ -12,7 +12,7 @@ if (cookies.has('locale')) {
 }
 
 Meteor.startup(() => {
-    // document.body.className += ' ' + 'js-body';
+    document.body.classList.add('load-js');
 
     navigator.serviceWorker
         .register('/sw.js')
