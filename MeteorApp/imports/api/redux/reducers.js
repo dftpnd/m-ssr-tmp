@@ -9,7 +9,8 @@ import {
     GET_MENU,
     FIND_ACCOUNT,
     ADD_ORDER,
-    ADD_ORDER_REMOVE
+    ADD_ORDER_REMOVE,
+    CLEAR_ORDER
 } from './actions';
 
 const remove = (state, action) => {
@@ -67,6 +68,7 @@ function accounts(state = [], action) {
 
 function orders(state = [], action) {
     const METHODS = {
+        [CLEAR_ORDER]: () => [],
         [ADD_ORDER]: () => [...state, action.data],
         [ADD_ORDER_REMOVE]: () => {
             let removeOnlyOne = false;

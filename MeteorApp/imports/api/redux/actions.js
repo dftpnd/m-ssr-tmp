@@ -11,10 +11,17 @@ export const FIND_ACCOUNT = 'FIND_ACCOUNT';
 export const CREATE_ORDER = 'CREATE_ORDER';
 export const ADD_ORDER = 'ADD_ORDER';
 export const ADD_ORDER_REMOVE = 'ADD_ORDER_REMOVE';
+export const CLEAR_ORDER = 'CLEAR_ORDER';
 
 /*
 * action creators
 */
+
+export function clearOrder() {
+    return {
+        type: CLEAR_ORDER
+    };
+}
 
 export function addTodo(data) {
     return {

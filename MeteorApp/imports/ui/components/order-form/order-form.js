@@ -5,7 +5,7 @@ import { array, func } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux';
 
-import { callGetMenu, callCreateOrder } from '../../../api/redux/async-actions';
+import { callGetMenu, callCreateOrder, callClearOrder } from '../../../api/redux/async-actions';
 // const T = i18n.createComponent();
 let myMap;
 const ymapsInit = () => {
@@ -62,20 +62,22 @@ function ContainsPoly(CoordX, CoordY) {
     // console.log('ContainsPoint', ContainsPoint);
 }
 
+const dafaultState = {
+    phone: '',
+    delivery: 'pickup',
+    pay: 'checkout',
+    address: '',
+    addresses: [],
+    pos: [],
+    loadPos: false,
+    comment: '',
+    available: false
+};
+
 class OrderForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            phone: '',
-            delivery: 'pickup',
-            pay: 'checkout',
-            address: '',
-            addresses: [],
-            pos: [],
-            loadPos: false,
-            comment: '',
-            available: false
-        };
+        this.state = dafaultState;
     }
 
     componentDidMount = () => {
@@ -136,7 +138,6 @@ class OrderForm extends React.Component {
             alert('bad!');
             return;
         }
-        this.setState({ validForm: true });
 
         // const data = new FormData(event.target);
 
@@ -161,11 +162,16 @@ class OrderForm extends React.Component {
 
         // console.log('message', message);
 
+        this.props.clearOrder();
+        this.setState(dafaultState);
+
         this.props.createOrder({ date: 'hello world' });
 
         Meteor.call('telegramSend', message, (error, res) => {
             console.log('res', res);
         });
+
+        alert('Ваш заказ принят! ожидайте звонка, для подтверждения заказа ;)');
     };
 
     render() {
@@ -261,7 +267,7 @@ class OrderForm extends React.Component {
                             )}
 
                             {this.state.available && (
-                                <div>
+                                <div className="order-form__autocomlete">
                                     <label htmlFor="сomment" className="order-form__label">
                                         № квартиры (комментарий)
                                         <div className="order-form__hint">
@@ -339,7 +345,9 @@ class OrderForm extends React.Component {
                 </fieldset>
 
                 <div className="order-form__buttons">
-                    <button type="button">Отменить</button>
+                    <button onClick={this.props.clearOrder} type="button">
+                        Отменить
+                    </button>
                     <button type="submit">Заказать</button>
                 </div>
             </form>
@@ -349,7 +357,8 @@ class OrderForm extends React.Component {
 
 OrderForm.propTypes = {
     orders: array.isRequired,
-    createOrder: func
+    createOrder: func,
+    clearOrder: func
 };
 
 const mapStateToProps = state => ({ orders: state.orders });
@@ -358,6 +367,7 @@ export default connect(
     mapStateToProps,
     {
         fetch: callGetMenu,
-        createOrder: callCreateOrder
+        createOrder: callCreateOrder,
+        clearOrder: callClearOrder
     }
 )(OrderForm);

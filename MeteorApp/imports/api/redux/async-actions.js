@@ -9,7 +9,7 @@ import {
     findAccounts,
     addOrder,
     addOrderRemove,
-    createOrder
+    clearOrder
 } from './actions';
 
 import { todosGetAll, todosAdd, todosEdit, todosRemove } from '../todos/methods';
@@ -99,6 +99,12 @@ export function callCreateOrder(data) {
 export function callAddOrder(order) {
     return dispatch => {
         dispatch(addOrder(order));
+    };
+}
+
+export function callClearOrder() {
+    return dispatch => {
+        dispatch(clearOrder());
     };
 }
 
