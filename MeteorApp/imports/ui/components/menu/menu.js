@@ -20,6 +20,8 @@ class Menu extends React.Component {
     constructor(props) {
         super(props);
 
+        this.$menuList = null;
+
         this.state = {
             nodeWidth: null,
             stateOrder: false,
@@ -41,10 +43,12 @@ class Menu extends React.Component {
 
     componentDidMount = () => {
         window.addEventListener('hashchange', this.setActiveIndex, false);
+        window.addEventListener('resize', debounce(e => this.endResize(e), 100));
     };
 
     componentWillUnmount() {
         window.removeEventListener('hashchange', this.setActiveIndex, false);
+        window.removeEventListener('resize', this.endResize);
     }
 
     setActiveIndex = () => {
@@ -63,14 +67,18 @@ class Menu extends React.Component {
         window.location.hash = anchors[activeIndex] || anchors[0];
     };
 
-    startScroll = (e, nodeWidth) => {
+    startScroll = (e, node) => {
+        const nodeWidth = Math.floor(node.getBoundingClientRect().width);
+
         if (nodeWidth && !this.state.scroll) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
             this.setState({ activeIndex, scroll: 1 });
         }
     };
 
-    endScroll = (e, nodeWidth) => {
+    endScroll = (e, node) => {
+        const nodeWidth = Math.floor(node.getBoundingClientRect().width);
+
         if (nodeWidth && this.state.scroll) {
             const activeIndex = Math.round(e.srcElement.scrollLeft / nodeWidth);
             this.setState({ activeIndex, scroll: 0 });
@@ -78,14 +86,22 @@ class Menu extends React.Component {
         }
     };
 
+    endResize = () => {
+        const activeIndex = this.state.activeIndex;
+        const nodeWidth = Math.floor(this.$menuList.getBoundingClientRect().width);
+        const scrollLeft = activeIndex * nodeWidth;
+        this.$menuList.scrollLeft = scrollLeft;
+    };
+
     paneDidMount = node => {
+        this.$menuList = node;
+
         if (!('scroll-snap-type' in document.body.style)) return;
         this.setState({ snapType: true });
-        const nodeWidth = Math.floor(node.getBoundingClientRect().width);
 
         if (node) {
-            node.addEventListener('scroll', e => this.startScroll(e, nodeWidth));
-            node.addEventListener('scroll', debounce(e => this.endScroll(e, nodeWidth), 100));
+            node.addEventListener('scroll', e => this.startScroll(e, node));
+            node.addEventListener('scroll', debounce(e => this.endScroll(e, node), 100));
         }
     };
     getIndex = () => {

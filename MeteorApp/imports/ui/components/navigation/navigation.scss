@@ -23,7 +23,7 @@
         overflow-x: scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         &::-webkit-scrollbar {
             display: none;

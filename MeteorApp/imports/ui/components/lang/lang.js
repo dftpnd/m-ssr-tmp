@@ -14,7 +14,6 @@ const Lang = () => {
         <ul>
             <li>
                 <button onClick={() => setLang('ru-RU')} type="button">
-                    ru{' '}
                     <span role="img" aria-label="ru">
                         🇷🇺
                     </span>
@@ -22,7 +21,6 @@ const Lang = () => {
             </li>
             <li>
                 <button onClick={() => setLang('en-US')} type="button">
-                    en{' '}
                     <span role="img" aria-label="en">
                         🇺🇸
                     </span>

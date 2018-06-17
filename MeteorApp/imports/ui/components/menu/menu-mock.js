@@ -521,37 +521,4 @@ export default [
             }
         ]
     }
-    // {
-    //     key: 'soups',
-    //     name: 'Супы',
-    //     title: 'common.menu.title.soups',
-    //     list: [
-    //         {
-    //             name: 'Суп с лапшой - 280 гр',
-    //             name_2: 'Куриные фрикадельки',
-    //             price: '250',
-    //             cost: [{ type: 'ru', val: 350 }],
-    //             dish: 'noodlesSoup'
-    //         },
-    //         {
-    //             name: 'Сырный суп - 280 гр',
-    //             price: '250',
-    //             cost: [{ type: 'ru', val: 350 }],
-    //             dish: 'cheeseSoup'
-    //         },
-    //         {
-    //             name: 'Грибной суп - 280 гр',
-    //             price: '250',
-    //             cost: [{ type: 'ru', val: 350 }],
-    //             dish: 'mushroomSoup'
-    //         },
-    //         {
-    //             name: 'Бузара - 280 гр',
-    //             name_2: 'Мидии, кальмар, креветки',
-    //             price: '350',
-    //             cost: [{ type: 'ru', val: 350 }],
-    //             dish: 'buzara'
-    //         }
-    //     ]
-    // }
 ];
