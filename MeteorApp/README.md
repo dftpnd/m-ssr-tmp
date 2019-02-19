@@ -11,7 +11,7 @@
 
 ![](https://i.imgflip.com/l909e.jpg)
 
-With custom demo Todo app implementation.
+
 
 #### How to run:
 
