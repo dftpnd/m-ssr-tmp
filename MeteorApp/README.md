@@ -1,10 +1,11 @@
 ## MIB tmp:
-test 23
+
 - React
 - Redux
 - React Router 4
 - Server Side Rendering support with Redux state and Helmet
 - POSTCSS/SCSS/Flexbox
+— PWA
 
 Meteor React boilerplate with Redux.
 Based on [Official Meteor Guide](http://guide.meteor.com/).
