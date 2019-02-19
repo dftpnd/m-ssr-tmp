@@ -8,10 +8,6 @@
 - PWA
 
 
-Meteor React boilerplate with Redux.
-Based on [Official Meteor Guide](http://guide.meteor.com/).
-
-"Beam me up, Scotty!" ;)
 
 ![](https://i.imgflip.com/l909e.jpg)
 
